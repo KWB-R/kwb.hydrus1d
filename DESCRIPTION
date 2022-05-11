@@ -17,9 +17,10 @@ Description: R Interface for the Last Official Release of Hydrus1D
 License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.hydrus1d
 BugReports: https://github.com/KWB-R/kwb.hydrus1d/issues
-Suggests: 
-    covr,
+Imports:
     kwb.utils
+Suggests: 
+    covr
 Remotes: 
     kwb-r/kwb.utils
 Encoding: UTF-8

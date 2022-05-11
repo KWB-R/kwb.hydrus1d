@@ -18,7 +18,10 @@ License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.hydrus1d
 BugReports: https://github.com/KWB-R/kwb.hydrus1d/issues
 Suggests: 
-    covr
+    covr,
+    kwb.utils
+Remotes: 
+    kwb-r/kwb.utils
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

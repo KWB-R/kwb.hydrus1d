@@ -16,6 +16,7 @@
 #'
 #' @return Creates ATMOSPH.IN input textfile
 #' @importFrom kwb.utils resolve
+#' @export
 #' @examples
 #' write_atmosphere()
 

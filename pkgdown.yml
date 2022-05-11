@@ -2,7 +2,7 @@ pandoc: 2.7.3
 pkgdown: 2.0.3
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-05-11T17:15Z
+last_built: 2022-05-11T19:43Z
 urls:
   reference: https://kwb-r.github.io/kwb.hydrus1d/reference
   article: https://kwb-r.github.io/kwb.hydrus1d/articles

@@ -19,9 +19,6 @@ convert_atmosphere_to_string <- function(atm,
 
   ### get rid of scientific notation
   options(scipen = 999)
-
-  # Reset to defaults:
-  options(opts.default)
 }
 
   pad_short <- 11
@@ -59,6 +56,7 @@ txt <-  sprintf("%s\n%s",
           paste0(names(atm), collapse = ""),
           paste0(apply(atm, 1, function(x) paste0(x, collapse = "")), collapse = "\n"))
 
-
+# Reset to defaults:
+if (remove_scientific) options(opts.default)
 
 }

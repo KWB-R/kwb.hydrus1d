@@ -5,6 +5,7 @@
 \title{Write "ATMOSPH.IN" input file}
 \usage{
 write_atmosphere(
+  atm,
   MaxAL = 365,
   DailyVar = FALSE,
   SinusVar = FALSE,
@@ -15,6 +16,8 @@ write_atmosphere(
 )
 }
 \arguments{
+\item{atm}{tibble of input data as defined in \code{prepare_atmospherice_input}}
+
 \item{MaxAL}{Number of meteorological records}
 
 \item{DailyVar}{TRUE if HYDRUS-1D is to generate daily variations in evaporation

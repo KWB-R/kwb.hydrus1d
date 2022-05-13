@@ -1,5 +1,6 @@
 #' Write "ATMOSPH.IN" input file
 #'
+#' @param atm tibble of input data as defined in \code{prepare_atmospherice_input}
 #' @param MaxAL Number of meteorological records
 #' @param DailyVar TRUE if HYDRUS-1D is to generate daily variations in evaporation
 #' and transpiration (see section 2.7.2.)., otherwise: FALSE (default: FALSE)
@@ -21,7 +22,8 @@
 #' @examples
 #' write_atmosphere()
 
-write_atmosphere <- function (MaxAL = 365,
+write_atmosphere <- function (atm,
+                              MaxAL = 365,
                               DailyVar = FALSE,
                               SinusVar = FALSE,
                               lLai = FALSE,
@@ -29,7 +31,6 @@ write_atmosphere <- function (MaxAL = 365,
                               lInterc = FALSE,
                               hCritS = 0
 ) {
-
 
   grammar <- list(
     input_file = "<A><B><C>",
@@ -53,11 +54,10 @@ write_atmosphere <- function (MaxAL = 365,
                  ),
     A7 = " hCritS                 (max. allowed pressure head at the soil surface)\n",
     A8 = sprintf("%7f\n", hCritS),
-    B = "<B1><B2>",
-    B1 = "header\n",
-    B2 = "content\n",
+    B = "<B1>\n",
+    B1 =  convert_atmosphere_to_string(atm),
     C = "<endOfFile>",
-    endOfFile = "end*** END OF INPUT FILE 'ATMOSPH.IN' **********************************\n"
+    endOfFile = "end*** END OF INPUT FILE 'ATMOSPH.IN' **********************************"
   )
 
 

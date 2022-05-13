@@ -44,6 +44,7 @@ prepare_atmosphere_input <- function(inputs,
 
   dplyr::bind_cols(inputs[,paras_defined],
                    defaults[, paras_undefined]) %>%
-  dplyr::select(tidyselect::all_of(get_atmosphere_headers()))
+    dplyr::select(tidyselect::all_of(get_atmosphere_headers()))
 
 }
+

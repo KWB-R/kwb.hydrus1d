@@ -52,6 +52,7 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">write_atmosphere</span><span class="op">(</span>
+  <span class="va">atm</span>,
   MaxAL <span class="op">=</span> <span class="fl">365</span>,
   DailyVar <span class="op">=</span> <span class="cn">FALSE</span>,
   SinusVar <span class="op">=</span> <span class="cn">FALSE</span>,
@@ -64,7 +65,9 @@
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>MaxAL</dt>
+    <dl><dt>atm</dt>
+<dd><p>tibble of input data as defined in <code>prepare_atmospherice_input</code></p></dd>
+<dt>MaxAL</dt>
 <dd><p>Number of meteorological records</p></dd>
 <dt>DailyVar</dt>
 <dd><p>TRUE if HYDRUS-1D is to generate daily variations in evaporation
@@ -93,7 +96,7 @@ FALSE (default: FALSE)</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">write_atmosphere</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Pcp_File_Version=4\n*** BLOCK I: ATMOSPHERIC INFORMATION  **********************************\n   MaxAL                    (MaxAL = number of atmospheric data-records)\n    365\n DailyVar  SinusVar  lLay  lBCCycles lInterc lDummy  lDummy  lDummy  lDummy  lDummy\n      f      f      f      f      f       f       f       f       f       f\nheader\ncontent\nend*** END OF INPUT FILE 'ATMOSPH.IN' **********************************\n"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in convert_atmosphere_to_string(atm):</span> argument "atm" is missing, with no default</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

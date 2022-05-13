@@ -4,13 +4,19 @@
 \alias{convert_atmosphere_to_string}
 \title{Convert Atmosphere to String}
 \usage{
-convert_atmosphere_to_string(atm)
+convert_atmosphere_to_string(atm, round_digits = 2, remove_scientific = TRUE)
 }
 \arguments{
 \item{atm}{atm as retrieved by \code{prepare_atmosphere_data}}
+
+\item{round_digits}{digits used for rounding values (default: 2) of all columns
+besides "tAtm"}
+
+\item{remove_scientific}{if TRUE scientific notation of numbers is removed,
+otherwise not (default: TRUE)}
 }
 \value{
-tibble with strings padded properly for Hydrus1D
+properly padded string of atmosphere variables for Hydrus1D input file
 }
 \description{
 Convert Atmosphere to String

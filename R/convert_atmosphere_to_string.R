@@ -59,4 +59,5 @@ txt <-  sprintf("%s\n%s",
 # Reset to defaults:
 if (remove_scientific) options(opts.default)
 
+txt
 }

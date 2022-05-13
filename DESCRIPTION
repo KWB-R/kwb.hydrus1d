@@ -18,7 +18,9 @@ License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.hydrus1d
 BugReports: https://github.com/KWB-R/kwb.hydrus1d/issues
 Imports:
-    kwb.utils
+    kwb.utils,
+    stringr,
+    tibble
 Suggests: 
     covr
 Remotes: 

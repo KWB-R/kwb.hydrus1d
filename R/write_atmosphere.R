@@ -16,6 +16,7 @@
 #'
 #' @return Creates ATMOSPH.IN input textfile
 #' @importFrom kwb.utils resolve
+#' @importFrom stringr str_pad
 #' @export
 #' @examples
 #' write_atmosphere()
@@ -38,15 +39,20 @@ write_atmosphere <- function (MaxAL = 365,
     A3 = "   MaxAL                    (MaxAL = number of atmospheric data-records)\n",
     A4 = sprintf("%7d\n", MaxAL),
     A5 = " DailyVar  SinusVar  lLay  lBCCycles lInterc lDummy  lDummy  lDummy  lDummy  lDummy\n",
-    A6 = sprintf("       %s       %s       %s       %s       %s       %s\n",
+    A6 = sprintf(paste0(c(rep(stringr::str_pad("%s", width = 8, "left"), 5),
+                          "%s\n"),
+                        collapse = ""),
                  DailyVar,
                  SinusVar,
                  lLai,
                  lBCCycles,
                  lInterc,
-                 paste0(rep("        f",5), collapse = "")),
+                 paste0(rep(stringr::str_pad("f", width = 8,side = "left"),
+                            5),
+                        collapse = "")
+                 ),
     A7 = " hCritS                 (max. allowed pressure head at the soil surface)\n",
-    A8 = sprintf("%7d\n", hCritS),
+    A8 = sprintf("%7f\n", hCritS),
     B = "<B1><B2>",
     B1 = "header\n",
     B2 = "content\n",

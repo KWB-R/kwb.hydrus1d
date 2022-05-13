@@ -18,10 +18,12 @@ License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.hydrus1d
 BugReports: https://github.com/KWB-R/kwb.hydrus1d/issues
 Imports:
+    dplyr,
     kwb.utils,
     magrittr,
     stringr,
-    tibble
+    tibble,
+    tidyselect
 Suggests: 
     covr
 Remotes: 

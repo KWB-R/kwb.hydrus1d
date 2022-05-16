@@ -14,10 +14,14 @@ imports T_LEVEL out with tidy column names and saves metainformation
 in attribute 'meta'
 }
 \description{
-Read T_LEVEL.out
+Stores pressure heads and fluxes on the boundaries and in the
+root zone.
 }
 \examples{
 path_tlevel <- system.file("extdata/model/test/T_LEVEL.out", package = "kwb.hydrus1d")
 tlevel <- read_tlevel(path = path_tlevel)
 tlevel
+}
+\references{
+\url{https://www.pc-progress.com/Downloads/Pgm_Hydrus1D/HYDRUS1D-4.17.pdf#page=271}
 }

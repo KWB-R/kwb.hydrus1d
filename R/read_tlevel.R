@@ -1,5 +1,8 @@
 #' Read T_LEVEL.out
 #'
+#' @description Stores pressure heads and fluxes on the boundaries and in the
+#' root zone.
+#'
 #' @param path full path to T_LEVEL.out file
 #'
 #' @return imports T_LEVEL out with tidy column names and saves metainformation
@@ -10,6 +13,7 @@
 #' @importFrom janitor make_clean_names
 #' @importFrom kwb.utils multiSubstitute
 #' @importFrom rlang .data
+#' @references \url{https://www.pc-progress.com/Downloads/Pgm_Hydrus1D/HYDRUS1D-4.17.pdf#page=271}
 #' @examples
 #' path_tlevel <- system.file("extdata/model/test/T_LEVEL.out", package = "kwb.hydrus1d")
 #' tlevel <- read_tlevel(path = path_tlevel)

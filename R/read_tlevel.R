@@ -54,20 +54,18 @@ col_units <- stringr::str_split_fixed(stringr::str_remove(content[8], "\\s+"),
 
 
 meta_units <- tibble::tibble(name = col_names,
+                        col_width = c(rep(13,19), 7, 13, 11),
                         unit_general = col_units,
                         unit = kwb.utils::multiSubstitute(strings = .data$unit_general,
                                                  replacements = units_list))
 
 
-col_widths <- c(rep(13,19), 7, 13, 11)
-sum(col_widths)
-stringr::str_length(content[10])
 rows_to_skip <- 9
 tlevel <- readr::read_fwf(file = path,
                           skip = rows_to_skip,
                           n_max = length(content)-rows_to_skip-2,
-                          readr::fwf_widths(widths = col_widths,
-                                            col_names = col_names))
+                          readr::fwf_widths(widths = meta_units$col_width,
+                                            col_names = meta_units$name))
 
 attr(tlevel, "meta_general") <- meta_general
 attr(tlevel, "meta_units") <- meta_units

@@ -103,8 +103,45 @@ otherwise not (default: TRUE)</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">write_atmosphere</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in convert_atmosphere_to_string(atm, round_digits, remove_scientific):</span> argument "atm" is missing, with no default</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">inputs</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>tAtm <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, Prec <span class="op">=</span> <span class="fl">10</span>, rSoil <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">atm</span> <span class="op">&lt;-</span> <span class="fu"><a href="prepare_atmosphere_input.html">prepare_atmosphere_input</a></span><span class="op">(</span><span class="va">inputs</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">atm</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     tAtm  Prec rSoil rRoot hCritA    rB    hB    ht  tTop  tBot  Ampl  cTop</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     1    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     2    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     3    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     4    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     5    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     6    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     7    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     8    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     9    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>    10    10   0.4     0 <span style="text-decoration: underline;">100</span>000     0     0     0     0     0     0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 2 more variables: cBot &lt;int&gt;, RootDepth &lt;int&gt;</span></span>
+<span class="r-in"><span class="va">atm_string</span> <span class="op">&lt;-</span> <span class="fu">write_atmosphere</span><span class="op">(</span>atm <span class="op">=</span> <span class="va">atm</span>, MaxAL <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">atm</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">atm_string</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Pcp_File_Version=4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> *** BLOCK I: ATMOSPHERIC INFORMATION  **********************************</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    MaxAL                    (MaxAL = number of atmospheric data-records)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  DailyVar  SinusVar  lLay  lBCCycles lInterc lDummy  lDummy  lDummy  lDummy  lDummy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       f      f      f      f      f       f       f       f       f       f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  hCritS                 (max. allowed pressure head at the soil surface)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        tAtm        Prec       rSoil       rRoot      hCritA          rB          hB          ht        tTop        tBot        Ampl        cTop        cBot   RootDepth</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           1          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           2          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           3          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           4          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           5          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           6          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           7          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           8          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           9          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          10          10         0.4           0      100000           0           0           0           0           0           0           0           0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> end*** END OF INPUT FILE 'ATMOSPH.IN' **********************************</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

@@ -40,6 +40,12 @@
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_alevel.html</loc>
   </url>
   <url>
+    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_tlevel.html</loc>
+  </url>
+  <url>
+    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/tlevel_get_meta.html</loc>
+  </url>
+  <url>
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/write_atmosphere.html</loc>
   </url>
 </urlset>

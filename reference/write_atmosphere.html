@@ -59,7 +59,9 @@
   lLai <span class="op">=</span> <span class="cn">FALSE</span>,
   lBCCycles <span class="op">=</span> <span class="cn">FALSE</span>,
   lInterc <span class="op">=</span> <span class="cn">FALSE</span>,
-  hCritS <span class="op">=</span> <span class="fl">0</span>
+  hCritS <span class="op">=</span> <span class="fl">0</span>,
+  round_digits <span class="op">=</span> <span class="fl">2</span>,
+  remove_scientific <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span></code></pre></div>
     </div>
 
@@ -87,6 +89,12 @@ multiple times, otherwise FALSE(default: FALSE)</p></dd>
 FALSE (default: FALSE)</p></dd>
 <dt>hCritS</dt>
 <dd><p>Maximum allowed pressure head at the soil surface (L). (default: 0)</p></dd>
+<dt>round_digits</dt>
+<dd><p>digits used for rounding values (default: 2) of all columns
+besides "tAtm"</p></dd>
+<dt>remove_scientific</dt>
+<dd><p>if TRUE scientific notation of numbers is removed,
+otherwise not (default: TRUE)</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -96,7 +104,7 @@ FALSE (default: FALSE)</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">write_atmosphere</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in convert_atmosphere_to_string(atm):</span> argument "atm" is missing, with no default</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in convert_atmosphere_to_string(atm, round_digits, remove_scientific):</span> argument "atm" is missing, with no default</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

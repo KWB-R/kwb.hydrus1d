@@ -23,6 +23,7 @@ Imports:
     kwb.utils,
     magrittr,
     readr,
+    rlang,
     stringr,
     tibble,
     tidyselect

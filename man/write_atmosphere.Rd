@@ -53,5 +53,9 @@ Creates ATMOSPH.IN input textfile
 Write "ATMOSPH.IN" input file
 }
 \examples{
-write_atmosphere()
+inputs <- tibble::tibble(tAtm = 1:10, Prec = 10, rSoil = 0.4)
+atm <- prepare_atmosphere_input(inputs)
+atm
+atm_string <- write_atmosphere(atm = atm, MaxAL = nrow(atm))
+cat(atm_string)
 }

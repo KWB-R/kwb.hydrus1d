@@ -20,10 +20,12 @@ col_names <- stringr::str_trim(content[3]) %>%
   janitor::make_clean_names()
 
 rows_to_skip <- 5
-tmp <- readr::read_fwf(file = path,
+
+readr::read_fwf(file = path,
                 skip = rows_to_skip,
                 n_max = length(content)-rows_to_skip-1,
                 readr::fwf_widths(widths = col_widths,
-                                  col_names = col_names))
+                                  col_names = col_names)
+                )
 
 }

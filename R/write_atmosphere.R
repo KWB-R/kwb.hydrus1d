@@ -34,7 +34,7 @@ write_atmosphere <- function (atm,
 
   grammar <- list(
     input_file = "<A><B><C>",
-    A = "<A1><A2><A3><A4><A5><A6>",
+    A = "<A1><A2><A3><A4><A5><A6><A7><A8>",
     A1 = "Pcp_File_Version=4\n",
     A2 = "*** BLOCK I: ATMOSPHERIC INFORMATION  **********************************\n",
     A3 = "   MaxAL                    (MaxAL = number of atmospheric data-records)\n",

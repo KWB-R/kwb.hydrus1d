@@ -49,7 +49,7 @@ convert_atmosphere_to_string <- function(atm,
 
   bool_long <- names(atm) %in% headers_long
   names(atm)[bool_long] <-  stringr::str_pad(names(atm)[bool_long],
-                                             pad_short,
+                                             pad_long,
                                              "left")
 
 txt <-  sprintf("%s\n%s",

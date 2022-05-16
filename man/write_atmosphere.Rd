@@ -12,7 +12,9 @@ write_atmosphere(
   lLai = FALSE,
   lBCCycles = FALSE,
   lInterc = FALSE,
-  hCritS = 0
+  hCritS = 0,
+  round_digits = 2,
+  remove_scientific = TRUE
 )
 }
 \arguments{
@@ -37,6 +39,12 @@ multiple times, otherwise FALSE(default: FALSE)}
 FALSE (default: FALSE)}
 
 \item{hCritS}{Maximum allowed pressure head at the soil surface (L). (default: 0)}
+
+\item{round_digits}{digits used for rounding values (default: 2) of all columns
+besides "tAtm"}
+
+\item{remove_scientific}{if TRUE scientific notation of numbers is removed,
+otherwise not (default: TRUE)}
 }
 \value{
 Creates ATMOSPH.IN input textfile

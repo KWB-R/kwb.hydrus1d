@@ -14,7 +14,10 @@
 #' @param lInterc TRUE if interception is considered using eq. (2.78), otherwise
 #' FALSE (default: FALSE)
 #' @param hCritS Maximum allowed pressure head at the soil surface (L). (default: 0)
-#'
+#' @param round_digits digits used for rounding values (default: 2) of all columns
+#' besides "tAtm"
+#' @param remove_scientific if TRUE scientific notation of numbers is removed,
+#' otherwise not (default: TRUE)
 #' @return Creates ATMOSPH.IN input textfile
 #' @importFrom kwb.utils resolve
 #' @importFrom stringr str_pad
@@ -29,7 +32,10 @@ write_atmosphere <- function (atm,
                               lLai = FALSE,
                               lBCCycles = FALSE,
                               lInterc = FALSE,
-                              hCritS = 0
+                              hCritS = 0,
+                              round_digits = 2,
+                              remove_scientific = TRUE
+
 ) {
 
   grammar <- list(
@@ -53,9 +59,11 @@ write_atmosphere <- function (atm,
                         collapse = "")
                  ),
     A7 = " hCritS                 (max. allowed pressure head at the soil surface)\n",
-    A8 = sprintf("%7f\n", hCritS),
+    A8 = stringr::str_pad(sprintf("%s\n", round(hCritS, round_digits)),
+                          width = 7,
+                          "left"),
     B = "<B1>\n",
-    B1 =  convert_atmosphere_to_string(atm),
+    B1 =  convert_atmosphere_to_string(atm, round_digits, remove_scientific),
     C = "<endOfFile>",
     endOfFile = "end*** END OF INPUT FILE 'ATMOSPH.IN' **********************************"
   )

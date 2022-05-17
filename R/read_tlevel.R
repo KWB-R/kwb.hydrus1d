@@ -22,24 +22,8 @@ read_tlevel <- function(path) {
 
 content <- readLines(path)
 
-
-units <- stringr::str_split_fixed(stringr::str_remove_all(content[5],
-                                                          "\\s|Units|L|:|T|M|="),
-                                  pattern = ",",
-                                  n = 3)
-
-units_list <- list("L" = units[1],
-                   "T" = units[2],
-                   "M" = units[3])
-
-meta_general <- tibble::tibble(description = stringr::str_trim(content[3]),
-                       modelstart_datetime = stringr::str_remove_all(content[4],
-                                                          "Date:|\\s") %>%
-                         stringr::str_replace("Time:", " "),
-                       unit_L = units_list$L,
-                       unit_T = units_list$T,
-                       unit_M = units_list$M)
-
+meta_general <-  read_meta_general(content[3:5])
+units_list <- get_units_list(meta_general)
 
 col_names <- stringr::str_trim(content[7]) %>%
   stringr::str_split(pattern = "\\s+") %>%
@@ -50,8 +34,6 @@ col_names <- stringr::str_trim(content[7]) %>%
 col_units <- stringr::str_split_fixed(stringr::str_remove(content[8], "\\s+"),
                          n = length(col_names), pattern = "\\s+") %>%
   stringr::str_remove_all("\\[|\\]")
-
-
 
 meta_units <- tibble::tibble(name = col_names,
                         col_width = c(rep(13,19), 7, 13, 11),
@@ -67,7 +49,7 @@ tlevel <- readr::read_fwf(file = path,
                           readr::fwf_widths(widths = meta_units$col_width,
                                             col_names = meta_units$name))
 
-attr(tlevel, "meta_general") <- meta_general
+attr(tlevel, "meta_general") <- read_meta_general(content[3:5])
 attr(tlevel, "meta_units") <- meta_units
 
 tlevel

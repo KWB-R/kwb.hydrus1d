@@ -35,7 +35,7 @@ rows_to_skip <- 5
 alevel <- readr::read_fwf(file = path,
                 skip = rows_to_skip,
                 n_max = length(content)-rows_to_skip-1,
-                readr::fwf_widths(widths = meta_units$col_widths,
+                readr::fwf_widths(widths = meta_units$col_width,
                                   col_names = meta_units$names)
                 )
 

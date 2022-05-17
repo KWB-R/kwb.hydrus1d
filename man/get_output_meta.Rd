@@ -18,7 +18,7 @@ Helper Function: Get Metadata of Outputs ('A_LEVEL.out', 'T_LEVEL.out')
 }
 \examples{
 path_alevel <- system.file("extdata/model/test/A_LEVEL.out", package = "kwb.hydrus1d")
-alevel <- read_tlevel(path = path_tlevel)
+alevel <- read_alevel(path = path_alevel)
 get_output_meta(alevel)
 path_tlevel <- system.file("extdata/model/test/T_LEVEL.out", package = "kwb.hydrus1d")
 tlevel <- read_tlevel(path = path_tlevel)

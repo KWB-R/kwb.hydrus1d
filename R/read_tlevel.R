@@ -5,8 +5,40 @@
 #'
 #' @param path full path to T_LEVEL.out file
 #'
-#' @return imports T_LEVEL out with tidy column names and saves metainformation
-#' in attribute 'meta'
+#' @return imports T_LEVEL out with tidy column names and  saves metainformation
+#' in attributes 'meta_general' and 'meta_units'
+#' \describe{
+#'   \item{time}{Time, t, at current time-level \[T\]}
+#'   \item{r_top}{Potential surface flux \[LT-1\] (infiltration/evaporation: -/+)}
+#'   \item{r_root}{Potential transpiration rate \[LT-1\]}
+#'   \item{v_top}{Actual surface flux \[LT-1\] (infiltration/evaporation: -/+)}
+#'   \item{v_root}{Actual transpiration rate \[LT-1\]}
+#'   \item{v_bot}{Actual flux across the bottom of the soil profile \[LT-1\]
+#'   (inflow/outflow +/-)}
+#'   \item{sum_r_top}{Cumulative value of the potential surface flux \[L\]
+#'   (infiltration/evaporation: -/+)}
+#'   \item{sum_r_root}{Cumulative value of the potential transpiration rate
+#'   \[L\] }
+#'   \item{sum_v_top}{Cumulative value of the actual surface flux \[L\]}
+#'   \item{sum_v_root}{Cumulative value of the actual transpiration rate \[L\]
+#'   (infiltration/evaporation: -/+)}
+#'   \item{sum_v_bot}{Cumulative value of the actual flux across the bottom of
+#'    the soil profile \[LT-1\] (inflow/outflow +/-)}
+#'   \item{h_top}{Pressure head at the soil surface \[L\]}
+#'   \item{h_root}{Mean value of the pressure head over the region for which
+#'   Beta(n) > 0 (i.e. within the root zone) \[L\]}
+#'   \item{h_bot}{Pressure head at the bottom of the soil profile \[L\]}
+#'   \item{run_off}{Surface runoff \[LT-1\]}
+#'   \item{sum_run_off}{Cumulative surface runoff \[L\]}
+#'   \item{volume}{Volume of water in the entire flow domain \[L\]}
+#'   \item{sum_infil}{Cumulative infiltration \[L\]}
+#'   \item{sum_evap}{Cumulative actual evaporation \[L\]}
+#'   \item{t_level}{Time-level (current time-step number) \[-\]}
+#'   \item{cum_w_trans}{Cumulative mass transfer between the mobile and immobile
+#'   regions for dual porosity model \[L\]}
+#'   \item{snow_layer}{Thickness of snow layer, expressed as the "snow water
+#'   equivalent" (the amount of water contained within the snowpack) \[L\]}
+#' }
 #' @export
 #' @importFrom readr read_delim read_fwf fwf_widths
 #' @importFrom stringr str_remove_all str_replace str_split_fixed str_trim

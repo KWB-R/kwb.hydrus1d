@@ -11,10 +11,23 @@ read_runinf(path)
 }
 \value{
 imports Run_Inf.out with tidy column names and saves metainformation
-in attribute 'meta'
+in attributes 'meta_general' and 'meta_units'
 \describe{
-\item{tlevel}{Time-level (current time-step number) [-].}
-\item{time}{Time, t, at current time-level \link{T}.}
+\item{tlevel}{Time-level (current time-step number) [-]}
+\item{time}{Time, t, at current time-level [T]}
+\item{dt}{Time step, delta t [T]}
+\item{itr_w}{Number of iterations necessary for solution of the water flow
+equation [-]}
+\item{itr_c}{Number of iterations necessary for solution of the solute
+transport equation [-]}
+\item{it_cum}{Cumulative number of iterations [-]}
+\item{kod_t}{Code for the boundary condition at the soil surface}
+\item{kod_b}{Code for the boundary condition at the bottom of the soil
+profile}
+\item{converg}{Information whether or not the numerical convergence was
+achieved at the current time-level}
+\item{peclet}{Maximum local Peclet number [-]}
+\item{courant}{Maximum local Courant number [-]}
 }
 }
 \description{

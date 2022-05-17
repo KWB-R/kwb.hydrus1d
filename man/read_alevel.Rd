@@ -10,12 +10,35 @@ read_alevel(path)
 \item{path}{full path to A_LEVEL.out file}
 }
 \value{
-imports A_LEVEL out with tidy column names
+imports A_LEVEL out with tidy column names and saves metainformation
+in attributes 'meta_general' and 'meta_units'
+\describe{
+\item{time}{Time, t, at current time-level [T]}
+\item{sum_r_top}{Cumulative potential surface flux [L]
+(infiltration/evaporation: -/+)}
+\item{sum_r_root}{Cumulative potential transpiration [L]}
+\item{sum_v_top}{Cumulative value of the actual surface flux [L]
+(infiltration/evaporation: -/+) [-]}
+\item{sum_v_root}{Cumulative value of the actual transpiration [L]}
+\item{sum_v_bot}{Cumulative value of the bottom boundary flux [L]
+(inflow/outflow: +/-)}
+\item{h_top}{Pressure head at the soil surface [L]}
+\item{h_root}{Mean value of the pressure head in the soil root zone for
+which Beta(n)>0 [L]}
+\item{h_bot}{Pressure head at the bottom of the soil profile [L]}
+\item{a_level}{A-level number (current variable boundary condition number)
+[-]}
+}
 }
 \description{
 A-level information is printed each time a time-dependent
 boundary condition is specified. The information is directed to output file
-A_LEVEL.OUT (Table 13.6).
+A_LEVEL.OUT.
+}
+\examples{
+path_alevel <- system.file("extdata/model/test/A_LEVEL.out", package = "kwb.hydrus1d")
+alevel <- read_alevel(path = path_alevel)
+alevel
 }
 \references{
 \url{https://www.pc-progress.com/Downloads/Pgm_Hydrus1D/HYDRUS1D-4.17.pdf#page=277}

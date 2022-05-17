@@ -31,6 +31,9 @@
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_output_meta.html</loc>
   </url>
   <url>
+    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_units_list.html</loc>
+  </url>
+  <url>
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/index.html</loc>
   </url>
   <url>
@@ -41,6 +44,9 @@
   </url>
   <url>
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_alevel.html</loc>
+  </url>
+  <url>
+    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_meta_general.html</loc>
   </url>
   <url>
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_tlevel.html</loc>

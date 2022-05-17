@@ -1,4 +1,4 @@
-# flextreat.hydrus1d 0.0.0.9000
+# kwb.hydrus1d 0.0.0.9000
 
 * Added a `NEWS.md` file to track changes to the package.
 

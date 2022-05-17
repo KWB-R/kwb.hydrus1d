@@ -1,9 +1,13 @@
 #' Read A_LEVEL.out
 #'
+#' @description A-level information is printed each time a time-dependent
+#' boundary condition is specified. The information is directed to output file
+#' A_LEVEL.OUT (Table 13.6).
 #' @param path full path to A_LEVEL.out file
 #'
 #' @return imports A_LEVEL out with tidy column names
 #' @export
+#' @references \url{https://www.pc-progress.com/Downloads/Pgm_Hydrus1D/HYDRUS1D-4.17.pdf#page=277}
 #' @importFrom readr read_delim read_fwf fwf_widths
 #' @importFrom stringr str_split str_trim
 #' @importFrom janitor make_clean_names

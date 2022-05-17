@@ -73,22 +73,3 @@ attr(tlevel, "meta_units") <- meta_units
 tlevel
 
 }
-
-
-#' Helper Function: Get Metadata of 'T_LEVEL.out'
-#'
-#' @param tlevel as retrieved by \code{read_tlevel}
-#'
-#' @return returns metainformation list with sublists "general" and "units"  of
-#' imported T_LEVEL.out file
-#' @export
-#'
-#' @examples
-#' path_tlevel <- system.file("extdata/model/test/T_LEVEL.out", package = "kwb.hydrus1d")
-#' tlevel <- read_tlevel(path = path_tlevel)
-#' tlevel_get_meta(tlevel)
-tlevel_get_meta <- function(tlevel) {
-  list(general = attr(tlevel, "meta_general"),
-       units = attr(tlevel, "meta_units")
-  )
-}

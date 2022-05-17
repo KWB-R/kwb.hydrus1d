@@ -62,11 +62,42 @@
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>imports Run_Inf.out with tidy column names and saves metainformation
-in attribute 'meta'</p><dl><dt>tlevel</dt>
-<dd><p>Time-level (current time-step number) [-].</p></dd>
+in attributes 'meta_general' and 'meta_units'</p><dl><dt>tlevel</dt>
+<dd><p>Time-level (current time-step number) [-]</p></dd>
 
 <dt>time</dt>
-<dd><p>Time, t, at current time-level <a href="https://rdrr.io/r/base/logical.html" class="external-link">T</a>.</p></dd>
+<dd><p>Time, t, at current time-level [T]</p></dd>
+
+<dt>dt</dt>
+<dd><p>Time step, delta t [T]</p></dd>
+
+<dt>itr_w</dt>
+<dd><p>Number of iterations necessary for solution of the water flow
+equation [-]</p></dd>
+
+<dt>itr_c</dt>
+<dd><p>Number of iterations necessary for solution of the solute
+transport equation [-]</p></dd>
+
+<dt>it_cum</dt>
+<dd><p>Cumulative number of iterations [-]</p></dd>
+
+<dt>kod_t</dt>
+<dd><p>Code for the boundary condition at the soil surface</p></dd>
+
+<dt>kod_b</dt>
+<dd><p>Code for the boundary condition at the bottom of the soil
+profile</p></dd>
+
+<dt>converg</dt>
+<dd><p>Information whether or not the numerical convergence was
+achieved at the current time-level</p></dd>
+
+<dt>peclet</dt>
+<dd><p>Maximum local Peclet number [-]</p></dd>
+
+<dt>courant</dt>
+<dd><p>Maximum local Courant number [-]</p></dd>
 
 
 </dl></div>

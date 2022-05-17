@@ -64,9 +64,83 @@ root zone.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>imports T_LEVEL out with tidy column names and saves metainformation
-in attribute 'meta'</p>
-    </div>
+    <p>imports T_LEVEL out with tidy column names and  saves metainformation
+in attributes 'meta_general' and 'meta_units'</p><dl><dt>time</dt>
+<dd><p>Time, t, at current time-level [T]</p></dd>
+
+<dt>r_top</dt>
+<dd><p>Potential surface flux [LT-1] (infiltration/evaporation: -/+)</p></dd>
+
+<dt>r_root</dt>
+<dd><p>Potential transpiration rate [LT-1]</p></dd>
+
+<dt>v_top</dt>
+<dd><p>Actual surface flux [LT-1] (infiltration/evaporation: -/+)</p></dd>
+
+<dt>v_root</dt>
+<dd><p>Actual transpiration rate [LT-1]</p></dd>
+
+<dt>v_bot</dt>
+<dd><p>Actual flux across the bottom of the soil profile [LT-1]
+(inflow/outflow +/-)</p></dd>
+
+<dt>sum_r_top</dt>
+<dd><p>Cumulative value of the potential surface flux [L]
+(infiltration/evaporation: -/+)</p></dd>
+
+<dt>sum_r_root</dt>
+<dd><p>Cumulative value of the potential transpiration rate
+[L]</p></dd>
+
+<dt>sum_v_top</dt>
+<dd><p>Cumulative value of the actual surface flux [L]</p></dd>
+
+<dt>sum_v_root</dt>
+<dd><p>Cumulative value of the actual transpiration rate [L]
+(infiltration/evaporation: -/+)</p></dd>
+
+<dt>sum_v_bot</dt>
+<dd><p>Cumulative value of the actual flux across the bottom of
+the soil profile [LT-1] (inflow/outflow +/-)</p></dd>
+
+<dt>h_top</dt>
+<dd><p>Pressure head at the soil surface [L]</p></dd>
+
+<dt>h_root</dt>
+<dd><p>Mean value of the pressure head over the region for which
+Beta(n) &gt; 0 (i.e. within the root zone) [L]</p></dd>
+
+<dt>h_bot</dt>
+<dd><p>Pressure head at the bottom of the soil profile [L]</p></dd>
+
+<dt>run_off</dt>
+<dd><p>Surface runoff [LT-1]</p></dd>
+
+<dt>sum_run_off</dt>
+<dd><p>Cumulative surface runoff [L]</p></dd>
+
+<dt>volume</dt>
+<dd><p>Volume of water in the entire flow domain [L]</p></dd>
+
+<dt>sum_infil</dt>
+<dd><p>Cumulative infiltration [L]</p></dd>
+
+<dt>sum_evap</dt>
+<dd><p>Cumulative actual evaporation [L]</p></dd>
+
+<dt>t_level</dt>
+<dd><p>Time-level (current time-step number) [-]</p></dd>
+
+<dt>cum_w_trans</dt>
+<dd><p>Cumulative mass transfer between the mobile and immobile
+regions for dual porosity model [L]</p></dd>
+
+<dt>snow_layer</dt>
+<dd><p>Thickness of snow layer, expressed as the "snow water
+equivalent" (the amount of water contained within the snowpack) [L]</p></dd>
+
+
+</dl></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p><a href="https://www.pc-progress.com/Downloads/Pgm_Hydrus1D/HYDRUS1D-4.17.pdf#page=271" class="external-link">https://www.pc-progress.com/Downloads/Pgm_Hydrus1D/HYDRUS1D-4.17.pdf#page=271</a></p>

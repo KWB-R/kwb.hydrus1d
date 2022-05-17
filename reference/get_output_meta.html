@@ -68,8 +68,9 @@ imported 'A_LEVEL.out' or 'T_LEVEL.out' file</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">path_alevel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/model/test/A_LEVEL.out"</span>, package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">alevel</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_tlevel.html">read_tlevel</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">path_tlevel</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in readLines(path):</span> object 'path_tlevel' not found</span>
+<span class="r-in"><span class="va">alevel</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_alevel.html">read_alevel</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">path_alevel</span><span class="op">)</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Unknown or uninitialised column: `col_widths`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in abs(widths):</span> non-numeric argument to mathematical function</span>
 <span class="r-in"><span class="fu">get_output_meta</span><span class="op">(</span><span class="va">alevel</span><span class="op">)</span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get_output_meta(alevel):</span> object 'alevel' not found</span>
 <span class="r-in"><span class="va">path_tlevel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/model/test/T_LEVEL.out"</span>, package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span></span>

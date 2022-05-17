@@ -58,7 +58,7 @@ read_runinf <- function(path) {
   rows_to_skip <- 9
   runinf <- readr::read_fwf(file = path,
                             skip = rows_to_skip,
-                            n_max = length(content)-rows_to_skip-2,
+                            n_max = length(content) - rows_to_skip - get_number_of_endlines(content),
                             readr::fwf_widths(widths = meta_units$col_width,
                                               col_names = meta_units$name))
 

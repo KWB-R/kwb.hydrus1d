@@ -21,7 +21,7 @@ InitialCondition=1
 [Profile]
 NumberOfNodes=101
 ProfileDepth=2.E+02
-ObservationNodes=0
+ObservationNodes=7
 GridVisible=1
 SnapToGrid=1
 ProfileWidth=80

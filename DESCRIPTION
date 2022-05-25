@@ -18,7 +18,9 @@ License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.hydrus1d
 BugReports: https://github.com/KWB-R/kwb.hydrus1d/issues
 Imports:
+    archive,
     dplyr,
+    fs,
     janitor,
     kwb.utils,
     magrittr,

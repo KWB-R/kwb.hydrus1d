@@ -38,7 +38,7 @@ install.packages('kwb.hydrus1d')
 
 ```{r define_paths, eval=is_windows}
 paths_list <- list(
-  exe_dir = system.file("extdata/model", package = "flextreat.hydrus1d"),
+  exe_dir = system.file("extdata/model", package = "kwb.hydrus1d"),
   model_name = "test",
   model_dir = "<exe_dir>/<model_name>",
   atmosphere = "<model_dir>/ATMOSPH.in",

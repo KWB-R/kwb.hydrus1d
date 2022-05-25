@@ -1,0 +1,77 @@
+---
+title: "Workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+is_windows <- .Platform$OS.type == "windows"
+```
+
+The workflow below describes all the steps required for:
+
+1. **Running** it from within `R`  by using the command line (`cmd`) and 
+
+2. **Importing** and **Analysing** the `HYDRUS1D` results within R.
+
+
+
+## Install R Package
+
+```{r eval=FALSE}
+# Enable this universe
+options(repos = c(
+  kwbr = 'https://kwb-r.r-universe.dev',
+  CRAN = 'https://cloud.r-project.org'))
+# Install R package
+install.packages('kwb.hydrus1d')
+```
+
+## Define Paths
+
+```{r define_paths, eval=is_windows}
+paths_list <- list(
+  exe_dir = system.file("extdata/model", package = "flextreat.hydrus1d"),
+  model_name = "test",
+  model_dir = "<exe_dir>/<model_name>",
+  atmosphere = "<model_dir>/ATMOSPH.in",
+  a_level = "<model_dir>/A_LEVEL.out",
+  t_level = "<model_dir>/T_LEVEL.out",
+  runinf = "<model_dir>/Run_Inf.out"
+)
+
+paths <- kwb.utils::resolve(paths_list)
+
+
+```
+
+## Run Model
+
+```{r run_model, eval=is_windows}
+exe_path <- kwb.hydrus1d::check_hydrus_exe(dir = paths$exe_dir,
+                                           skip_preinstalled = TRUE)
+kwb.hydrus1d:::run_model(exe_path = exe_path,
+                         model_path = paths$model_dir)
+
+```
+
+## Read Results
+
+```{r read_results, eval=is_windows}
+
+a_level <- kwb.hydrus1d::read_alevel(paths$a_level)
+a_level
+
+t_level <- kwb.hydrus1d::read_tlevel(paths$t_level)
+t_level
+
+runinf <- kwb.hydrus1d::read_runinf(paths$runinf)
+runinf
+```

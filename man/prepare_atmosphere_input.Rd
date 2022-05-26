@@ -10,7 +10,8 @@ prepare_atmosphere_input(inputs, defaults = defaults_atmosphere())
 \item{inputs}{tibble or data.frame with user defined inputs for parameters
 defined in \code{get_atmosphere_headers}}
 
-\item{defaults}{defaults for undefined parameters\code{\link[=defaults_atmosphere]{defaults_atmosphere()}}}
+\item{defaults}{defaults for undefined parameters. Default:
+\code{\link{defaults_atmosphere}}}
 }
 \value{
 tibble with atmosphere values

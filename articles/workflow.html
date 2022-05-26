@@ -117,7 +117,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">exe_path</span> <span class="op">&lt;-</span> <span class="fu">kwb.hydrus1d</span><span class="fu">::</span><span class="fu"><a href="../reference/check_hydrus_exe.html">check_hydrus_exe</a></span><span class="op">(</span>dir <span class="op">=</span> <span class="va">paths</span><span class="op">$</span><span class="va">exe_dir</span>,
                                            skip_preinstalled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; Checking if download of HYDRUS1D executable v4.17.0140 from 'https://github.com/mrustl/hydrus1d/archive/refs/tags/v4.17.0140.zip' was successful ... ok. (0.00s)</span>
+<span class="co">#&gt; Checking if download of HYDRUS1D executable v4.17.0140 from 'https://github.com/mrustl/hydrus1d/archive/refs/tags/v4.17.0140.zip' was successfully ... ok. (0.00s)</span>
 <span class="fu">kwb.hydrus1d</span><span class="fu">:::</span><span class="fu"><a href="../reference/run_model.html">run_model</a></span><span class="op">(</span>exe_path <span class="op">=</span> <span class="va">exe_path</span>,
                          model_path <span class="op">=</span> <span class="va">paths</span><span class="op">$</span><span class="va">model_dir</span><span class="op">)</span>
 <span class="co">#&gt; Warning in shell(cmd = sprintf("cd %s &amp;&amp; %s", fs::path_abs(target_dir), : 'cd</span>

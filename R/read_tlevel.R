@@ -50,41 +50,48 @@
 #' path_tlevel <- system.file("extdata/model/test/T_LEVEL.out", package = "kwb.hydrus1d")
 #' tlevel <- read_tlevel(path = path_tlevel)
 #' tlevel
-read_tlevel <- function(path) {
+read_tlevel <- function(path)
+{
+  content <- readLines(path)
 
+  meta_general <-  read_meta_general(content[3:5])
 
-content <- readLines(path)
+  col_names <- stringr::str_trim(content[7L]) %>%
+    stringr::str_split(pattern = "\\s+") %>%
+    unlist() %>%
+    janitor::make_clean_names()
 
-meta_general <-  read_meta_general(content[3:5])
-units_list <- get_units_list(meta_general)
+  col_units <- stringr::str_split_fixed(
+    stringr::str_remove(content[8L], "\\s+"),
+    n = length(col_names), pattern = "\\s+"
+  ) %>%
+    stringr::str_remove_all("\\[|\\]")
 
-col_names <- stringr::str_trim(content[7]) %>%
-  stringr::str_split(pattern = "\\s+") %>%
-  unlist() %>%
-  janitor::make_clean_names()
+  meta_units <- tibble::tibble(
+    name = col_names,
+    col_width = c(rep(13L, 19L), 7L, 13L, 11L),
+    unit_general = col_units,
+    unit = kwb.utils::multiSubstitute(
+      strings = .data$unit_general,
+      replacements = get_units_list(meta_general)
+    )
+  )
 
+  rows_to_skip <- 9L
 
-col_units <- stringr::str_split_fixed(stringr::str_remove(content[8], "\\s+"),
-                         n = length(col_names), pattern = "\\s+") %>%
-  stringr::str_remove_all("\\[|\\]")
+  tlevel <- readr::read_fwf(
+    file = path,
+    skip = rows_to_skip,
+    n_max = length(content) - rows_to_skip - get_number_of_endlines(content),
+    readr::fwf_widths(
+      widths = meta_units$col_width,
+      col_names = meta_units$name
+    )
+  )
 
-meta_units <- tibble::tibble(name = col_names,
-                        col_width = c(rep(13,19), 7, 13, 11),
-                        unit_general = col_units,
-                        unit = kwb.utils::multiSubstitute(strings = .data$unit_general,
-                                                 replacements = units_list))
-
-
-rows_to_skip <- 9
-tlevel <- readr::read_fwf(file = path,
-                          skip = rows_to_skip,
-                          n_max = length(content) - rows_to_skip - get_number_of_endlines(content),
-                          readr::fwf_widths(widths = meta_units$col_width,
-                                            col_names = meta_units$name))
-
-attr(tlevel, "meta_general") <- read_meta_general(content[3:5])
-attr(tlevel, "meta_units") <- meta_units
-
-tlevel
-
+  structure(
+    tlevel,
+    meta_general = read_meta_general(content[3:5]),
+    meta_units = meta_units
+  )
 }

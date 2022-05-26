@@ -37,7 +37,7 @@ prepare_atmosphere_input <- function(
 
   if (any(is_missing <- !is_given & !has_default)) {
     stop_formatted(
-      "The following required parameters were not defined: '%s'",
+      "The following required parameters were not defined: %s",
       kwb.utils::stringList(required_parameters[is_missing])
     )
   }

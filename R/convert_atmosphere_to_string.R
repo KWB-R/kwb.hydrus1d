@@ -8,56 +8,50 @@
 #' @return properly padded string of atmosphere variables for Hydrus1D input file
 #' @export
 #' @importFrom stringr str_pad
-convert_atmosphere_to_string <- function(atm,
-                                         round_digits = 2,
-                                         remove_scientific = TRUE) {
+convert_atmosphere_to_string <- function(
+  atm,
+  round_digits = 2L,
+  remove_scientific = TRUE
+)
+{
+  if (remove_scientific) {
 
+    # Get default options
+    opts.default <- options()
 
-  if(remove_scientific) {
-  ### Get default options
-  opts.default <- options()
+    # Get rid of scientific notation
+    options(scipen = 999)
 
-  ### get rid of scientific notation
-  options(scipen = 999)
-}
+    # Reset options on exit
+    on.exit(options(opts.default))
+  }
 
   pad_short <- 11
   pad_long <- 12
 
+  do_pad_short <- function(x) stringr::str_pad(x, pad_short, "left")
+  do_pad_long <- function(x) stringr::str_pad(x, pad_long, "left")
+
+  headers <- get_atmosphere_headers()
+
   headers_short <- "tAtm"
-  headers_long <- get_atmosphere_headers()[!get_atmosphere_headers() %in% headers_short]
+  headers_long <- setdiff(headers, headers_short)
 
+  atm[headers_long] <- lapply(atm[headers_long], round, round_digits)
 
+  atm[headers_short] <- lapply(atm[headers_short], do_pad_short)
+  atm[headers_long] <- lapply(atm[headers_long], do_pad_long)
 
-  atm[headers_long] <- (lapply(atm[headers_long],
-                               function(x) round(x, round_digits)))
+  is_short <- names(atm) %in% headers_short
+  is_long <- names(atm) %in% headers_long
 
+  names(atm)[is_short] <- do_pad_short(names(atm)[is_short])
+  names(atm)[is_long] <- do_pad_long(names(atm)[is_long])
 
-  atm[headers_short] <- (lapply(atm[headers_short],
-                                function(x) stringr::str_pad(x,
-                                                             pad_short,
-                                                             "left")))
-  atm[headers_long] <- (lapply(atm[headers_long],
-                               function(x) stringr::str_pad(x,
-                                                            pad_long,
-                                                            "left")))
+  collapse <- function(x) paste0(x, collapse = "")
 
-  bool_short <- names(atm) %in% headers_short
-  names(atm)[bool_short] <-  stringr::str_pad(names(atm)[bool_short],
-                                              pad_short,
-                                              "left")
+  header_text <- collapse(names(atm))
+  body_text <- paste(apply(atm, 1L, collapse), collapse = "\n")
 
-  bool_long <- names(atm) %in% headers_long
-  names(atm)[bool_long] <-  stringr::str_pad(names(atm)[bool_long],
-                                             pad_long,
-                                             "left")
-
-txt <-  sprintf("%s\n%s",
-          paste0(names(atm), collapse = ""),
-          paste0(apply(atm, 1, function(x) paste0(x, collapse = "")), collapse = "\n"))
-
-# Reset to defaults:
-if (remove_scientific) options(opts.default)
-
-txt
+  paste0(header_text, "\n", body_text)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_hydrus_exe.R
 \name{check_hydrus_exe}
 \alias{check_hydrus_exe}
-\title{Check HYDRUS Executable and if needed download}
+\title{Check HYDRUS Executable and download if needed}
 \usage{
 check_hydrus_exe(
   dir = file.path(system.file(package = "kwb.hydrus1d"), "extdata/hydrus1d"),
@@ -10,19 +10,20 @@ check_hydrus_exe(
 )
 }
 \arguments{
-\item{dir}{target directory (default: file.path(system.file(package = "kwb.hydrus1d"),
-"extdata/hydrus1d") in case compliant HYDRUS1D version is not available,
-executable will be downloaded from \url{https://github.com/mrustl/hydrus1d/archive/refs/tags/v4.17.0140.zip}}
+\item{dir}{target directory (default: file.path(system.file(package =
+"kwb.hydrus1d"), "extdata/hydrus1d"), in case compliant HYDRUS1D version is
+not available, executable will be downloaded from
+\url{https://github.com/mrustl/hydrus1d/archive/refs/tags/v4.17.0140.zip}}
 
 \item{skip_preinstalled}{if TRUE checking of preinstalled HYDRUS-1D will be
-skipped and executable will be downloaded, otherwise not (default: FALSE)}
+skipped and executable will be downloaded, otherwise not (the default)}
 }
 \value{
-path to preinstalled HYDRUS-1D executable (if compliant and
-parameter skip_preinstalled == FALSE), otherwise of downloaded HYDRUS-1D
+path to preinstalled HYDRUS-1D executable (if compliant and parameter
+skip_preinstalled == FALSE), otherwise path to downloaded HYDRUS-1D
 }
 \description{
-Check HYDRUS Executable and if needed download
+Check HYDRUS Executable and download if needed
 }
 \examples{
 check_hydrus_exe(skip_preinstalled = FALSE)

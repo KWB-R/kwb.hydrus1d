@@ -68,9 +68,5 @@ read_runinf <- function(path)
     )
   )
 
-  structure(
-    runinf,
-    "meta_general" = meta_general,
-    "meta_units" = meta_units
-  )
+  set_metadata(runinf, meta_general, meta_units)
 }

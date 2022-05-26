@@ -89,9 +89,5 @@ read_tlevel <- function(path)
     )
   )
 
-  structure(
-    tlevel,
-    meta_general = read_meta_general(content[3:5]),
-    meta_units = meta_units
-  )
+  set_metadata(tlevel, read_meta_general(content[3:5]), meta_units)
 }

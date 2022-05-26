@@ -69,9 +69,5 @@ read_alevel <- function(path)
     )
   )
 
-  structure(
-    alevel,
-    meta_general = meta_general,
-    meta_units = meta_units
-  )
+  set_metadata(alevel, meta_general, meta_units)
 }

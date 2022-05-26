@@ -8,6 +8,7 @@
 #' @return properly padded string of atmosphere variables for Hydrus1D input file
 #' @export
 #' @importFrom stringr str_pad
+#' @importFrom kwb.utils collapsed
 convert_atmosphere_to_string <- function(
   atm,
   round_digits = 2L,
@@ -38,9 +39,9 @@ convert_atmosphere_to_string <- function(
   headers_long <- setdiff(headers, headers_short)
 
   atm[headers_long] <- lapply(atm[headers_long], round, round_digits)
+  atm[headers_long] <- lapply(atm[headers_long], do_pad_long)
 
   atm[headers_short] <- lapply(atm[headers_short], do_pad_short)
-  atm[headers_long] <- lapply(atm[headers_long], do_pad_long)
 
   is_short <- names(atm) %in% headers_short
   is_long <- names(atm) %in% headers_long
@@ -48,10 +49,8 @@ convert_atmosphere_to_string <- function(
   names(atm)[is_short] <- do_pad_short(names(atm)[is_short])
   names(atm)[is_long] <- do_pad_long(names(atm)[is_long])
 
-  collapse <- function(x) paste0(x, collapse = "")
+  header_text <- kwb.utils::collapsed(names(atm), "")
+  body_lines <- apply(atm, 1L, kwb.utils::collapsed, "")
 
-  header_text <- collapse(names(atm))
-  body_text <- paste(apply(atm, 1L, collapse), collapse = "\n")
-
-  paste0(header_text, "\n", body_text)
+  kwb.utils::collapsed(c(header_text, body_lines), "\n")
 }

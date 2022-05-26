@@ -4,7 +4,7 @@
 \alias{set_metadata}
 \title{Set Metadata Attributes}
 \usage{
-set_metadata(x, meta_general = NULL, meta_units = NULL)
+set_metadata(x, meta_general, meta_units)
 }
 \arguments{
 \item{x}{R object}

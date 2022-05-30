@@ -3,7 +3,7 @@ pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   workflow: workflow.html
-last_built: 2022-05-26T06:29Z
+last_built: 2022-05-30T07:08Z
 urls:
   reference: https://kwb-r.github.io/kwb.hydrus1d/reference
   article: https://kwb-r.github.io/kwb.hydrus1d/articles

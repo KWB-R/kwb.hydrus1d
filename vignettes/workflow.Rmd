@@ -41,7 +41,7 @@ paths_list <- list(
   exe_dir = system.file("extdata/model", package = "kwb.hydrus1d"),
   model_name = "test",
   model_dir = "<exe_dir>/<model_name>",
-  atmosphere = "<model_dir>/ATMOSPH.in",
+  atmosphere = "<model_dir>/ATMOSPH.IN",
   a_level = "<model_dir>/A_LEVEL.out",
   t_level = "<model_dir>/T_LEVEL.out",
   runinf = "<model_dir>/Run_Inf.out"

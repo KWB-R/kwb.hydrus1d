@@ -34,40 +34,40 @@
 #' path_alevel <- system.file("extdata/model/test/A_LEVEL.out", package = "kwb.hydrus1d")
 #' alevel <- read_alevel(path = path_alevel)
 #' alevel
-read_alevel <- function(path) {
+read_alevel <- function(path)
+{
+  content <- readLines(path)
 
+  col_names <- stringr::str_trim(content[3]) %>%
+    stringr::str_split(pattern = "\\s+") %>%
+    unlist() %>%
+    janitor::make_clean_names()
 
-content <- readLines(path)
+  col_units <- stringr::str_split_fixed(
+    stringr::str_remove(content[4], "\\s+"),
+    n = length(col_names), pattern = "\\s+"
+  ) %>%
+    stringr::str_remove_all("\\[|\\]")
 
+  meta_general <- NULL
 
-col_names <- stringr::str_trim(content[3]) %>%
-  stringr::str_split(pattern = "\\s+") %>%
-  unlist() %>%
-  janitor::make_clean_names()
+  meta_units <- tibble::tibble(
+    name = col_names,
+    col_width = c(12L, rep(14L, 5L), rep(11L, 3L), 8L),
+    unit_general = col_units
+  )
 
-col_units <- stringr::str_split_fixed(stringr::str_remove(content[4], "\\s+"),
-                                      n = length(col_names), pattern = "\\s+") %>%
-  stringr::str_remove_all("\\[|\\]")
+  rows_to_skip <- 5L
 
+  alevel <- readr::read_fwf(
+    file = path,
+    skip = rows_to_skip,
+    n_max = length(content) - rows_to_skip - get_number_of_endlines(content),
+    readr::fwf_widths(
+      widths = meta_units$col_width,
+      col_names = meta_units$name
+    )
+  )
 
-meta_general <- NULL
-
-meta_units <- tibble::tibble(name = col_names,
-                             col_width = c(12, rep(14,5),rep(11,3),8),
-                             unit_general = col_units)
-
-rows_to_skip <- 5
-
-alevel <- readr::read_fwf(file = path,
-                skip = rows_to_skip,
-                n_max = length(content) - rows_to_skip - get_number_of_endlines(content),
-                readr::fwf_widths(widths = meta_units$col_width,
-                                  col_names = meta_units$name)
-                )
-
-attr(alevel, "meta_general") <- meta_general
-attr(alevel, "meta_units") <- meta_units
-
-alevel
-
+  set_metadata(alevel, meta_general, meta_units)
 }

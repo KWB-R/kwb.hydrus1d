@@ -29,18 +29,20 @@
 #' atm_string <- write_atmosphere(atm = atm, MaxAL = nrow(atm))
 #' cat(atm_string)
 
-write_atmosphere <- function (atm,
-                              MaxAL = 365,
-                              DailyVar = FALSE,
-                              SinusVar = FALSE,
-                              lLai = FALSE,
-                              lBCCycles = FALSE,
-                              lInterc = FALSE,
-                              hCritS = 0,
-                              round_digits = 2,
-                              remove_scientific = TRUE
-
-) {
+write_atmosphere <- function (
+  atm,
+  MaxAL = 365,
+  DailyVar = FALSE,
+  SinusVar = FALSE,
+  lLai = FALSE,
+  lBCCycles = FALSE,
+  lInterc = FALSE,
+  hCritS = 0,
+  round_digits = 2,
+  remove_scientific = TRUE
+)
+{
+  collapse <- function(x) paste(x, collapse = "")
 
   grammar <- list(
     input_file = "<A><B><C>",
@@ -50,33 +52,36 @@ write_atmosphere <- function (atm,
     A3 = "   MaxAL                    (MaxAL = number of atmospheric data-records)\n",
     A4 = sprintf("%7d\n", MaxAL),
     A5 = " DailyVar  SinusVar  lLay  lBCCycles lInterc lDummy  lDummy  lDummy  lDummy  lDummy\n",
-    A6 = sprintf(paste0(c(rep(stringr::str_pad("%s", width = 8, "left"), 5),
-                          "%s\n"),
-                        collapse = ""),
-                 DailyVar,
-                 SinusVar,
-                 lLai,
-                 lBCCycles,
-                 lInterc,
-                 paste0(rep(stringr::str_pad("f", width = 8,side = "left"),
-                            5),
-                        collapse = "")
-                 ),
+    A6 = sprintf(
+      collapse(c(
+        rep(stringr::str_pad("%s", width = 8L, "left"), 5L),
+        "%s\n"
+      )),
+      DailyVar,
+      SinusVar,
+      lLai,
+      lBCCycles,
+      lInterc,
+      collapse(rep(stringr::str_pad("f", width = 8L, side = "left"), 5L))
+    ),
     A7 = " hCritS                 (max. allowed pressure head at the soil surface)\n",
-    A8 = stringr::str_pad(sprintf("%s\n", round(hCritS, round_digits)),
-                          width = 7,
-                          "left"),
+    A8 = stringr::str_pad(
+      sprintf("%s\n", round(hCritS, round_digits)),
+      width = 7L,
+      "left"
+    ),
     B = "<B1>\n",
     B1 =  convert_atmosphere_to_string(atm, round_digits, remove_scientific),
     C = "<endOfFile>",
     endOfFile = "end*** END OF INPUT FILE 'ATMOSPH.IN' **********************************"
   )
 
-
-  inpTxt <- kwb.utils::resolve("input_file", grammar)
-
-  inpTxt <- gsub(pattern = "TRUE", replacement = "t", inpTxt)
-  inpTxt <- gsub(pattern = "FALSE", replacement = "f", inpTxt)
-  inpTxt
+  kwb.utils::multiSubstitute(
+    strings = kwb.utils::resolve("input_file", grammar),
+    replacements = list(
+      "TRUE" = "t",
+      "FALSE" = "f"
+    )
+  )
 }
 

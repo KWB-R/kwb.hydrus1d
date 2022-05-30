@@ -4,7 +4,7 @@
 \alias{convert_atmosphere_to_string}
 \title{Convert Atmosphere to String}
 \usage{
-convert_atmosphere_to_string(atm, round_digits = 2, remove_scientific = TRUE)
+convert_atmosphere_to_string(atm, round_digits = 2L, remove_scientific = TRUE)
 }
 \arguments{
 \item{atm}{atm as retrieved by \code{prepare_atmosphere_data}}

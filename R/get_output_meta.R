@@ -6,11 +6,10 @@
 #' imported 'A_LEVEL.out' or 'T_LEVEL.out' file
 #' @export
 #' @examples
-#' path_alevel <- system.file("extdata/model/test/A_LEVEL.out", package = "kwb.hydrus1d")
-#' alevel <- read_alevel(path = path_alevel)
+#' test_file <- function(x) system.file("extdata/model/test", x, package = "kwb.hydrus1d")
+#' alevel <- read_alevel(path = test_file("A_LEVEL.out"))
 #' get_output_meta(alevel)
-#' path_tlevel <- system.file("extdata/model/test/T_LEVEL.out", package = "kwb.hydrus1d")
-#' tlevel <- read_tlevel(path = path_tlevel)
+#' tlevel <- read_tlevel(path = test_file("T_LEVEL.out"))
 #' get_output_meta(tlevel)
 get_output_meta <- function(output) {
   list(

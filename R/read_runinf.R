@@ -33,38 +33,40 @@
 #' path_runinf <- system.file("extdata/model/test/Run_Inf.out", package = "kwb.hydrus1d")
 #' runinf <- read_runinf(path = path_runinf)
 #' runinf
-read_runinf <- function(path) {
-
+read_runinf <- function(path)
+{
   content <- readLines(path)
 
   meta_general <-  read_meta_general(content[3:5])
-  units_list <- get_units_list(meta_general)
 
-  col_names <- stringr::str_trim(content[8]) %>%
+  col_names <- stringr::str_trim(content[8L]) %>%
     stringr::str_split(pattern = "\\s+") %>%
     unlist() %>%
     janitor::make_clean_names()
 
-
   col_units <- ""
 
-  meta_units <- tibble::tibble(name = col_names,
-                               col_width = c(9,15,13,rep(5,2),9,rep(6,3), rep(10,2)),
-                               unit_general = col_units,
-                               unit = kwb.utils::multiSubstitute(strings = .data$unit_general,
-                                                                 replacements = units_list))
+  meta_units <- tibble::tibble(
+    name = col_names,
+    col_width = c(9L, 15L, 13L, rep(5L, 2L), 9L, rep(6L, 3L), rep(10L, 2L)),
+    unit_general = col_units,
+    unit = kwb.utils::multiSubstitute(
+      strings = .data$unit_general,
+      replacements = get_units_list(meta_general)
+    )
+  )
 
+  rows_to_skip <- 9L
 
-  rows_to_skip <- 9
-  runinf <- readr::read_fwf(file = path,
-                            skip = rows_to_skip,
-                            n_max = length(content) - rows_to_skip - get_number_of_endlines(content),
-                            readr::fwf_widths(widths = meta_units$col_width,
-                                              col_names = meta_units$name))
+  runinf <- readr::read_fwf(
+    file = path,
+    skip = rows_to_skip,
+    n_max = length(content) - rows_to_skip - get_number_of_endlines(content),
+    readr::fwf_widths(
+      widths = meta_units$col_width,
+      col_names = meta_units$name
+    )
+  )
 
-  attr(runinf, "meta_general") <- meta_general
-  attr(runinf, "meta_units") <- meta_units
-
-  runinf
-
+  set_metadata(runinf, meta_general, meta_units)
 }

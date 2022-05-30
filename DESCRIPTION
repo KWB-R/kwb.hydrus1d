@@ -36,7 +36,8 @@ Imports:
     tidyselect
 Suggests: 
     covr,
-    knitr
+    knitr,
+    rmarkdown
 Remotes: 
     kwb-r/kwb.utils
 Encoding: UTF-8

@@ -8,6 +8,11 @@ Authors@R:
              role = c("aut", "cre"),
              email = "michael.rustler@kompetenz-wasser.de",
              comment = c(ORCID = "0000-0003-0647-7726")),
+      person(given = "Hauke",
+             family = "Sonnenberg",
+             role = "ctb",
+             email = "hauke.sonnenberg@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0001-9134-2871")),
       person(given = "FlexTreat",
              role = "fnd"),
       person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
@@ -31,8 +36,7 @@ Imports:
     tidyselect
 Suggests: 
     covr,
-    knitr,
-    rmarkdown
+    knitr
 Remotes: 
     kwb-r/kwb.utils
 Encoding: UTF-8

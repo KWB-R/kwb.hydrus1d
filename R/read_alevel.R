@@ -4,7 +4,7 @@
 #' boundary condition is specified. The information is directed to output file
 #' A_LEVEL.OUT.
 #' @param path full path to A_LEVEL.out file
-#'
+#' @param dbg show debug messages (default: FALSE)
 #' @return imports A_LEVEL out with tidy column names and saves metainformation
 #' in attributes 'meta_general' and 'meta_units'
 #' \describe{
@@ -34,7 +34,7 @@
 #' path_alevel <- system.file("extdata/model/test/A_LEVEL.out", package = "kwb.hydrus1d")
 #' alevel <- read_alevel(path = path_alevel)
 #' alevel
-read_alevel <- function(path)
+read_alevel <- function(path, dbg = FALSE)
 {
   content <- readLines(path)
 
@@ -66,7 +66,8 @@ read_alevel <- function(path)
     readr::fwf_widths(
       widths = meta_units$col_width,
       col_names = meta_units$name
-    )
+    ),
+    show_col_types = dbg
   )
 
   set_metadata(alevel, meta_general, meta_units)

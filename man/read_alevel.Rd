@@ -4,10 +4,12 @@
 \alias{read_alevel}
 \title{Read A_LEVEL.out}
 \usage{
-read_alevel(path)
+read_alevel(path, dbg = FALSE)
 }
 \arguments{
 \item{path}{full path to A_LEVEL.out file}
+
+\item{dbg}{show debug messages (default: FALSE)}
 }
 \value{
 imports A_LEVEL out with tidy column names and saves metainformation

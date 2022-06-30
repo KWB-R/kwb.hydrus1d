@@ -4,10 +4,12 @@
 \alias{read_tlevel}
 \title{Read T_LEVEL.out}
 \usage{
-read_tlevel(path)
+read_tlevel(path, dbg = FALSE)
 }
 \arguments{
 \item{path}{full path to T_LEVEL.out file}
+
+\item{dbg}{show debug messages (default: FALSE)}
 }
 \value{
 imports T_LEVEL out with tidy column names and  saves metainformation

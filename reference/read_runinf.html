@@ -57,17 +57,20 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read_runinf</span><span class="op">(</span><span class="va">path</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_runinf</span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>path</dt>
 <dd><p>full path to Run_Inf.out file</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>imports Run_Inf.out with tidy column names and saves metainformation
+    
+
+<p>imports Run_Inf.out with tidy column names and saves metainformation
 in attributes 'meta_general' and 'meta_units'</p><dl><dt>tlevel</dt>
 <dd><p>Time-level (current time-step number) [-]</p></dd>
 
@@ -114,9 +117,9 @@ achieved at the current time-level</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">path_runinf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/model/test/Run_Inf.out"</span>, package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">runinf</span> <span class="op">&lt;-</span> <span class="fu">read_runinf</span><span class="op">(</span>path <span class="op">=</span> <span class="va">path_runinf</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">18041</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">11</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">path_runinf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/model/test/Run_Inf.out"</span>, package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">runinf</span> <span class="op">&lt;-</span> <span class="fu">read_runinf</span><span class="op">(</span>path <span class="op">=</span> <span class="va">path_runinf</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">2272</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">11</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">dbl</span> (10): t_level, time, dt, itr_w, itr_c, it_cum, kod_t, kod_b, peclet, cou...</span>
@@ -124,21 +127,21 @@ achieved at the current time-level</p></dd>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
-<span class="r-in"><span class="va">runinf</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 18,041 × 11</span></span>
+<span class="r-in"><span><span class="va">runinf</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,272 × 11</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    t_level  time      dt itr_w itr_c it_cum kod_t kod_b converg peclet courant</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>       1 0.111 0.111       5     1     25    -<span style="color: #BB0000;">4</span>    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.176</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>       2 0.222 0.111       4     1     29    -<span style="color: #BB0000;">4</span>    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.241</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>       3 0.259 0.037<span style="text-decoration: underline;">0</span>      3     1     42    -<span style="color: #BB0000;">4</span>    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.041</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>       4 0.265 0.005<span style="text-decoration: underline;">35</span>     2     1     64     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.006</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>       5 0.272 0.006<span style="text-decoration: underline;">95</span>     2     1     66     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.006</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>       6 0.281 0.009<span style="text-decoration: underline;">04</span>     2     1     68     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.006</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>       7 0.285 0.003<span style="text-decoration: underline;">92</span>     2     1     80     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.004</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>       8 0.290 0.005<span style="text-decoration: underline;">09</span>     2     1     82     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.005</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>       9 0.296 0.006<span style="text-decoration: underline;">62</span>     2     1     84     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.006</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>      10 0.305 0.008<span style="text-decoration: underline;">61</span>     2     1     86     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.009</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 18,031 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>       1 0.111 0.111       5     1     25    -<span style="color: #BB0000;">4</span>    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.18 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>       2 0.148 0.037<span style="text-decoration: underline;">0</span>      3     1     38    -<span style="color: #BB0000;">4</span>    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.075</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>       3 0.164 0.016<span style="text-decoration: underline;">0</span>      2     1     50    -<span style="color: #BB0000;">4</span>    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.034</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>       4 0.171 0.006<span style="text-decoration: underline;">95</span>     2     1     62    -<span style="color: #BB0000;">4</span>    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.015</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>       5 0.180 0.009<span style="text-decoration: underline;">04</span>     3     1     65    -<span style="color: #BB0000;">4</span>    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>       6 0.184 0.003<span style="text-decoration: underline;">92</span>     2     1     77     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.003</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>       7 0.189 0.005<span style="text-decoration: underline;">09</span>     2     1     79     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.004</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>       8 0.196 0.006<span style="text-decoration: underline;">62</span>     2     1     81     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.006</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>       9 0.204 0.008<span style="text-decoration: underline;">61</span>     2     1     83     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>      10 0.216 0.011<span style="text-decoration: underline;">2</span>      2     1     85     4    -<span style="color: #BB0000;">5</span> TRUE       0.1   0.009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 2,262 more rows</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -150,7 +153,7 @@ achieved at the current time-level</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>

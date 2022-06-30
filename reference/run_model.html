@@ -57,11 +57,11 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">run_model</span><span class="op">(</span>
-  exe_path <span class="op">=</span> <span class="fu"><a href="check_hydrus_exe.html">check_hydrus_exe</a></span><span class="op">(</span><span class="op">)</span>,
-  model_path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/model/test"</span>, package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">run_model</span><span class="op">(</span></span>
+<span>  exe_path <span class="op">=</span> <span class="fu"><a href="check_hydrus_exe.html">check_hydrus_exe</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  model_path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/model/test"</span>, package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,20 +69,27 @@
     <dl><dt>exe_path</dt>
 <dd><p>path to Hydrus1D executable v4.17.040 (default: as retrieved
 by <code>check_hydrus_exe</code>)</p></dd>
+
+
 <dt>model_path</dt>
 <dd><p>path to model directory (default: system.file("extdata/model/test",
 package = "kwb.hydrus1d"))</p></dd>
+
+
 <dt>...</dt>
 <dd><p>additional arguments passed to <code>shell</code></p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>runs HYDRUS 1D model</p>
+    
+
+<p>runs HYDRUS 1D model</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">run_model</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">run_model</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Checking if download of HYDRUS1D executable v4.17.0140 from 'https://github.com/mrustl/hydrus1d/archive/refs/tags/v4.17.0140.zip' was successful ... ok. (0.00s) </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>'cd D:/a/_temp/Library/kwb.hydrus1d/extdata/model &amp;&amp; H1D_CALC.exe' execution failed with error code 1</span>
 </code></pre></div>
@@ -96,7 +103,7 @@ package = "kwb.hydrus1d"))</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>

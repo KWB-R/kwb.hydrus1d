@@ -1,9 +1,9 @@
 pandoc: 2.7.3
-pkgdown: 2.0.3
+pkgdown: 2.0.5
 pkgdown_sha: ~
 articles:
   workflow: workflow.html
-last_built: 2022-05-30T13:05Z
+last_built: 2022-06-30T10:54Z
 urls:
   reference: https://kwb-r.github.io/kwb.hydrus1d/reference
   article: https://kwb-r.github.io/kwb.hydrus1d/articles

@@ -57,10 +57,10 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">check_hydrus_exe</span><span class="op">(</span>
-  dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span>, <span class="st">"extdata/hydrus1d"</span><span class="op">)</span>,
-  skip_preinstalled <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">check_hydrus_exe</span><span class="op">(</span></span>
+<span>  dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span>, <span class="st">"extdata/hydrus1d"</span><span class="op">)</span>,</span>
+<span>  skip_preinstalled <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -70,21 +70,26 @@
 "kwb.hydrus1d"), "extdata/hydrus1d"), in case compliant HYDRUS1D version is
 not available, executable will be downloaded from
 <a href="https://github.com/mrustl/hydrus1d/archive/refs/tags/v4.17.0140.zip" class="external-link">https://github.com/mrustl/hydrus1d/archive/refs/tags/v4.17.0140.zip</a></p></dd>
+
+
 <dt>skip_preinstalled</dt>
 <dd><p>if TRUE checking of preinstalled HYDRUS-1D will be
 skipped and executable will be downloaded, otherwise not (the default)</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>path to preinstalled HYDRUS-1D executable (if compliant and parameter
+    
+
+<p>path to preinstalled HYDRUS-1D executable (if compliant and parameter
 skip_preinstalled == FALSE), otherwise path to downloaded HYDRUS-1D</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">check_hydrus_exe</span><span class="op">(</span>skip_preinstalled <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">check_hydrus_exe</span><span class="op">(</span>skip_preinstalled <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Checking if download of HYDRUS1D executable v4.17.0140 from 'https://github.com/mrustl/hydrus1d/archive/refs/tags/v4.17.0140.zip' was successful ... ok. (0.00s) </span>
-<span class="r-in"><span class="fu">check_hydrus_exe</span><span class="op">(</span>skip_preinstalled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">check_hydrus_exe</span><span class="op">(</span>skip_preinstalled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Checking if download of HYDRUS1D executable v4.17.0140 from 'https://github.com/mrustl/hydrus1d/archive/refs/tags/v4.17.0140.zip' was successful ... ok. (0.00s) </span>
 </code></pre></div>
     </div>
@@ -97,7 +102,7 @@ skip_preinstalled == FALSE), otherwise path to downloaded HYDRUS-1D</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>

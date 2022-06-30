@@ -57,60 +57,87 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">defaults_atmosphere</span><span class="op">(</span>
-  Prec <span class="op">=</span> <span class="fl">0L</span>,
-  rSoil <span class="op">=</span> <span class="fl">0L</span>,
-  rRoot <span class="op">=</span> <span class="fl">0L</span>,
-  hCritA <span class="op">=</span> <span class="fl">100000L</span>,
-  rB <span class="op">=</span> <span class="fl">0L</span>,
-  hB <span class="op">=</span> <span class="fl">0L</span>,
-  ht <span class="op">=</span> <span class="fl">0L</span>,
-  tTop <span class="op">=</span> <span class="fl">0L</span>,
-  tBot <span class="op">=</span> <span class="fl">0L</span>,
-  Ampl <span class="op">=</span> <span class="fl">0L</span>,
-  cTop <span class="op">=</span> <span class="fl">0L</span>,
-  cBot <span class="op">=</span> <span class="fl">0L</span>,
-  RootDepth <span class="op">=</span> <span class="fl">0L</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">defaults_atmosphere</span><span class="op">(</span></span>
+<span>  Prec <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  rSoil <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  rRoot <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  hCritA <span class="op">=</span> <span class="fl">100000L</span>,</span>
+<span>  rB <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  hB <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  ht <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  tTop <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  tBot <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  Ampl <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  cTop <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  cBot <span class="op">=</span> <span class="fl">0L</span>,</span>
+<span>  RootDepth <span class="op">=</span> <span class="fl">0L</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>Prec</dt>
 <dd><p>Precipitation (default: 0)</p></dd>
+
+
 <dt>rSoil</dt>
 <dd><p>Evaporation (default: 0)</p></dd>
+
+
 <dt>rRoot</dt>
 <dd><p>Transpiration (default: 0)</p></dd>
+
+
 <dt>hCritA</dt>
 <dd><p>(default: 100000)</p></dd>
+
+
 <dt>rB</dt>
 <dd><p>rB (default: 0)</p></dd>
+
+
 <dt>hB</dt>
 <dd><p>hB (default: 0)</p></dd>
+
+
 <dt>ht</dt>
 <dd><p>ht (default: 0)</p></dd>
+
+
 <dt>tTop</dt>
 <dd><p>tTop (default: 0)</p></dd>
+
+
 <dt>tBot</dt>
 <dd><p>tBot (default: 0)</p></dd>
+
+
 <dt>Ampl</dt>
 <dd><p>Ampl (default: 0)</p></dd>
+
+
 <dt>cTop</dt>
 <dd><p>concentration of solute 1 at top (default: 0)</p></dd>
+
+
 <dt>cBot</dt>
 <dd><p>concentration of solute 1 at bottom (default: 0)</p></dd>
+
+
 <dt>RootDepth</dt>
 <dd><p>root depth (default: 0)</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>tibble with defaults for atmospheric parameters</p>
+    
+
+<p>tibble with defaults for atmospheric parameters</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">defaults_atmosphere</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">defaults_atmosphere</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Prec rSoil rRoot hCritA    rB    hB    ht  tTop  tBot  Ampl  cTop  cBot</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -127,7 +154,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>

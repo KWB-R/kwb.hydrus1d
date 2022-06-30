@@ -14,7 +14,10 @@
 #'
 get_units_list <- function(meta_general) {
 
-  meta_general %>%
+  units_list <- meta_general %>%
     dplyr::select(tidyselect::starts_with("unit")) %>%
     as.list()
+
+  names(units_list) <- stringr::str_remove(names(units_list), "^unit_")
+  units_list
 }

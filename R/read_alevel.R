@@ -65,9 +65,9 @@ read_alevel <- function(path, dbg = FALSE)
     n_max = length(content) - rows_to_skip - get_number_of_endlines(content),
     readr::fwf_widths(
       widths = meta_units$col_width,
-      col_names = meta_units$name,
-      show_col_types = dbg
-    )
+      col_names = meta_units$name
+    ),
+    show_col_types = dbg
   )
 
   set_metadata(alevel, meta_general, meta_units)

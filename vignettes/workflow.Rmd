@@ -44,7 +44,9 @@ paths_list <- list(
   atmosphere = "<model_dir>/ATMOSPH.IN",
   a_level = "<model_dir>/A_LEVEL.out",
   t_level = "<model_dir>/T_LEVEL.out",
-  runinf = "<model_dir>/Run_Inf.out"
+  runinf = "<model_dir>/Run_Inf.out",
+  solute_id = 1L,
+  solute = "<model_dir>/solute<solute_id>.out"
 )
 
 paths <- kwb.utils::resolve(paths_list)
@@ -74,4 +76,7 @@ t_level
 
 runinf <- kwb.hydrus1d::read_runinf(paths$runinf)
 runinf
+
+solute <- kwb.hydrus1d::read_solute(paths$solute)
+solute
 ```

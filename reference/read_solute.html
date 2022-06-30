@@ -58,7 +58,8 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_solute</span><span class="op">(</span></span>
-<span>  path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/model/test/solute1.out"</span>, package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span></span>
+<span>  path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/model/test/solute1.out"</span>, package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span>,</span>
+<span>  dbg <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -67,6 +68,10 @@
     <dl><dt>path</dt>
 <dd><p>full path to solute_id.out file (default: system.file("extdata/model/test/solute1.out",
 package = "kwb.hydrus1d"))</p></dd>
+
+
+<dt>dbg</dt>
+<dd><p>show debug messages (default: FALSE)</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -157,13 +162,6 @@ solute) are reported when 2 or more solutes are simulated</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">path_solute</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/model/test/solute1.out"</span>, package <span class="op">=</span> <span class="st">"kwb.hydrus1d"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">solute</span> <span class="op">&lt;-</span> <span class="fu">read_solute</span><span class="op">(</span>path <span class="op">=</span> <span class="va">path_solute</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">2272</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">19</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">dbl</span> (19): time, cv_top, cv_bot, sum_cv_top, sum_cv_bot, cv_ch0, cv_ch1, c_to...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
 <span class="r-in"><span><span class="va">solute</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,272 × 19</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     time cv_top cv_bot sum_cv_top sum_cv_bot cv_ch0 cv_ch1 c_top c_root c_bot</span>

@@ -130,13 +130,6 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">a_level</span> <span class="op">&lt;-</span> <span class="fu">kwb.hydrus1d</span><span class="fu">::</span><span class="fu"><a href="../reference/read_alevel.html">read_alevel</a></span><span class="op">(</span><span class="va">paths</span><span class="op">$</span><span class="va">a_level</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">1279</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">10</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (10): time, sum_r_top, sum_r_root, sum_v_top, sum_v_root, sum_v_bot, h_t...</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
 <span><span class="va">a_level</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,279 × 10</span></span></span>
 <span><span class="co">#&gt;     time     sum_r_top sum_r_root sum_v_top sum_v_root sum_v_bot    h_top h_root</span></span>
@@ -154,13 +147,6 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># … with 1,269 more rows, and 2 more variables: h_bot &lt;dbl&gt;, a_level &lt;dbl&gt;</span></span></span>
 <span></span>
 <span><span class="va">t_level</span> <span class="op">&lt;-</span> <span class="fu">kwb.hydrus1d</span><span class="fu">::</span><span class="fu"><a href="../reference/read_tlevel.html">read_tlevel</a></span><span class="op">(</span><span class="va">paths</span><span class="op">$</span><span class="va">t_level</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">17540</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">22</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (22): time, r_top, r_root, v_top, v_root, v_bot, sum_r_top, sum_r_root, ...</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
 <span><span class="va">t_level</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 17,540 × 22</span></span></span>
 <span><span class="co">#&gt;     time r_top r_root  v_top v_root    v_bot sum_r_top sum_r_root sum_v_top</span></span>
@@ -181,14 +167,6 @@
 <span><span class="co">#&gt; <span style="color: #949494;">#   t_level &lt;dbl&gt;, cum_w_trans &lt;dbl&gt;, snow_layer &lt;dbl&gt;</span></span></span>
 <span></span>
 <span><span class="va">runinf</span> <span class="op">&lt;-</span> <span class="fu">kwb.hydrus1d</span><span class="fu">::</span><span class="fu"><a href="../reference/read_runinf.html">read_runinf</a></span><span class="op">(</span><span class="va">paths</span><span class="op">$</span><span class="va">runinf</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">17540</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">11</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (10): t_level, time, dt, itr_w, itr_c, it_cum, kod_t, kod_b, peclet, cou...</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">lgl</span>  (1): converg</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
 <span><span class="va">runinf</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 17,540 × 11</span></span></span>
 <span><span class="co">#&gt;    t_level  time      dt itr_w itr_c it_cum kod_t kod_b converg peclet courant</span></span>

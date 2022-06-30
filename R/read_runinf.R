@@ -2,6 +2,7 @@
 #'
 #' @description Contains time and iteration information
 #' @param path full path to Run_Inf.out file
+#' @param dbg show debug messages (default: FALSE)
 #' @return imports Run_Inf.out with tidy column names and saves metainformation
 #' in attributes 'meta_general' and 'meta_units'
 #' \describe{
@@ -33,7 +34,7 @@
 #' path_runinf <- system.file("extdata/model/test/Run_Inf.out", package = "kwb.hydrus1d")
 #' runinf <- read_runinf(path = path_runinf)
 #' runinf
-read_runinf <- function(path)
+read_runinf <- function(path, dbg = FALSE)
 {
   content <- readLines(path)
 
@@ -65,7 +66,8 @@ read_runinf <- function(path)
     readr::fwf_widths(
       widths = meta_units$col_width,
       col_names = meta_units$name
-    )
+    ),
+    show_col_types = dbg
   )
 
   set_metadata(runinf, meta_general, meta_units)

@@ -4,10 +4,12 @@
 \alias{read_runinf}
 \title{Read Run_Inf.out}
 \usage{
-read_runinf(path)
+read_runinf(path, dbg = FALSE)
 }
 \arguments{
 \item{path}{full path to Run_Inf.out file}
+
+\item{dbg}{show debug messages (default: FALSE)}
 }
 \value{
 imports Run_Inf.out with tidy column names and saves metainformation

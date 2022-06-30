@@ -4,6 +4,7 @@
 #'
 #' @param path full path to solute_id.out file (default: system.file("extdata/model/test/solute1.out",
 #' package = "kwb.hydrus1d"))
+#' @param dbg show debug messages (default: FALSE)
 #' @return imports solute_id.out with tidy column names and saves metainformation
 #' in attributes 'meta_general' and 'meta_units'
 #' \describe{
@@ -54,7 +55,8 @@
 #' path_solute <- system.file("extdata/model/test/solute1.out", package = "kwb.hydrus1d")
 #' solute <- read_solute(path = path_solute)
 #' solute
-read_solute <- function(path = system.file("extdata/model/test/solute1.out", package = "kwb.hydrus1d"))
+read_solute <- function(path = system.file("extdata/model/test/solute1.out", package = "kwb.hydrus1d"),
+                        dbg = FALSE)
 {
 
   path <- kwb.utils::safePath(path)
@@ -101,8 +103,9 @@ read_solute <- function(path = system.file("extdata/model/test/solute1.out", pac
     readr::fwf_widths(
       widths = meta_units$col_width,
       col_names = meta_units$name
+    ),
+    show_col_types = dbg
     )
-  )
 
   set_metadata(solute, meta_general, meta_units)
 }

@@ -5,12 +5,15 @@
 \title{Read solute1.out}
 \usage{
 read_solute(
-  path = system.file("extdata/model/test/solute1.out", package = "kwb.hydrus1d")
+  path = system.file("extdata/model/test/solute1.out", package = "kwb.hydrus1d"),
+  dbg = FALSE
 )
 }
 \arguments{
 \item{path}{full path to solute_id.out file (default: system.file("extdata/model/test/solute1.out",
 package = "kwb.hydrus1d"))}
+
+\item{dbg}{show debug messages (default: FALSE)}
 }
 \value{
 imports solute_id.out with tidy column names and saves metainformation

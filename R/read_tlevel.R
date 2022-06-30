@@ -4,7 +4,7 @@
 #' root zone.
 #'
 #' @param path full path to T_LEVEL.out file
-#'
+#' @param dbg show debug messages (default: FALSE)
 #' @return imports T_LEVEL out with tidy column names and  saves metainformation
 #' in attributes 'meta_general' and 'meta_units'
 #' \describe{
@@ -50,7 +50,7 @@
 #' path_tlevel <- system.file("extdata/model/test/T_LEVEL.out", package = "kwb.hydrus1d")
 #' tlevel <- read_tlevel(path = path_tlevel)
 #' tlevel
-read_tlevel <- function(path)
+read_tlevel <- function(path, dbg = FALSE)
 {
   content <- readLines(path)
 
@@ -86,7 +86,8 @@ read_tlevel <- function(path)
     readr::fwf_widths(
       widths = meta_units$col_width,
       col_names = meta_units$name
-    )
+    ),
+    show_col_types = dbg
   )
 
   set_metadata(tlevel, read_meta_general(content[3:5]), meta_units)

@@ -24,3 +24,34 @@ template:
 development:
   mode: auto
 
+
+reference:
+  - title: Prepare Input
+    desc: >
+      Functions for preparing HYDRUS-1D input files
+    contents:
+      - prepare_atmosphere_input
+      - write_atmosphere
+
+  - title: Run Model
+    desc: >
+      Functions for performing HYDRUS-1D run
+    contents:
+      - check_hydrus_exe
+      - run_model
+
+  - title: Read Output
+    desc: >
+      Functions for reading HYDRUS-1D output files
+    contents:
+      - starts_with("read_")
+
+  - title: Helper functions
+    desc: >
+      Helper functions for HYDRUS-1D
+    contents:
+      - defaults_atmosphere
+      - get_atmosphere_headers
+      - get_output_meta
+      - get_units_list
+

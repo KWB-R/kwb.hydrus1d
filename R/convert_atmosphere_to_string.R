@@ -6,7 +6,9 @@
 #' @param remove_scientific if TRUE scientific notation of numbers is removed,
 #' otherwise not (default: TRUE)
 #' @return properly padded string of atmosphere variables for Hydrus1D input file
-#' @export
+#' @keywords internal
+#' @noMd
+#' @noRd
 #' @importFrom stringr str_pad
 #' @importFrom kwb.utils collapsed
 convert_atmosphere_to_string <- function(

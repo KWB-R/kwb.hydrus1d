@@ -3,7 +3,9 @@
 #' @param content content of text file
 #'
 #' @return returns number of lines starting with "end"
-#' @export
+#' @keywords internal
+#' @noMd
+#' @noRd
 #' @importFrom stringr str_detect
 get_number_of_endlines <- function(content) {
   sum(stringr::str_detect(content, pattern = "^end"))

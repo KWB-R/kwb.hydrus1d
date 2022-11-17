@@ -1,9 +1,9 @@
 url: https://kwb-r.github.io/kwb.hydrus1d
 authors:
   Michael Rustler:
-    href: https://mrustl.de
+    href: https://www.kompetenz-wasser.de/en/ueber-uns/team/michael-rustler
   Hauke Sonnenberg:
-    href: https://github.com/hsonne
+    href: https://www.kompetenz-wasser.de/en/ueber-uns/team/hauke-sonnenberg
   FlexTreat:
     href: https://www.kompetenz-wasser.de/en/forschung/projekte/flextreat
     html: <img src='https://bmbf-wave.de/Verbundprojekte+nach+Themenfeldern/Kommunales+Abwasser/FlexTreat-height-394-width-1389/_/Flextreat-Logo-300dpi.png'
@@ -23,4 +23,35 @@ template:
     btn-border-radius: 0.25rem
 development:
   mode: auto
+
+
+reference:
+  - title: Prepare Input
+    desc: >
+      Functions for preparing HYDRUS-1D input files
+    contents:
+      - prepare_atmosphere_input
+      - write_atmosphere
+
+  - title: Run Model
+    desc: >
+      Functions for performing HYDRUS-1D run
+    contents:
+      - check_hydrus_exe
+      - run_model
+
+  - title: Read Output
+    desc: >
+      Functions for reading HYDRUS-1D output files
+    contents:
+      - starts_with("read_")
+
+  - title: Helper functions
+    desc: >
+      Helper functions for HYDRUS-1D
+    contents:
+      - defaults_atmosphere
+      - get_atmosphere_headers
+      - get_output_meta
+      - get_units_list
 

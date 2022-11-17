@@ -2,10 +2,8 @@
 
 export("%>%")
 export(check_hydrus_exe)
-export(convert_atmosphere_to_string)
 export(defaults_atmosphere)
 export(get_atmosphere_headers)
-export(get_number_of_endlines)
 export(get_output_meta)
 export(get_units_list)
 export(prepare_atmosphere_input)

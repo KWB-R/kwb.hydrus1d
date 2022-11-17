@@ -28,16 +28,10 @@
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/check_hydrus_exe.html</loc>
   </url>
   <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/convert_atmosphere_to_string.html</loc>
-  </url>
-  <url>
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/defaults_atmosphere.html</loc>
   </url>
   <url>
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_atmosphere_headers.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_number_of_endlines.html</loc>
   </url>
   <url>
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_output_meta.html</loc>
@@ -71,9 +65,6 @@
   </url>
   <url>
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/run_model.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/set_metadata.html</loc>
   </url>
   <url>
     <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/write_atmosphere.html</loc>

@@ -43,7 +43,7 @@ read_obsnode <- function(path, to_longer = TRUE) {
     is_conc <- grepl("conc", headers_sel)
 
     if(sum(is_conc) > 0) {
-      headers_sel[is_conc] <- sprintf("%s%d",
+      headers_sel[is_conc] <- sprintf("%s_%d",
                                       headers_sel[is_conc],
                                       seq_len(sum(is_conc)))
     }
@@ -66,7 +66,8 @@ read_obsnode <- function(path, to_longer = TRUE) {
   if(to_longer) {
     dat %>%
       tidyr::pivot_longer( - time) %>%
-      tidyr::separate(col = "name", into = c("node", "variable"), sep = "_")
+      tidyr::separate(col = "name", into = c("node", "variable"), sep = "_") %>%
+      dplyr::mutate(node = stringr::str_remove(node, "node") %>% as.integer())
   } else {
     dat
   }

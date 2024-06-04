@@ -2,6 +2,7 @@
 #'
 #' @param path path to Obs_Node.out
 #' @param to_longer convert table to longer format (default: TRUE)
+#' @return tibble with Obs_Node time series data
 #' @importFrom stringr str_trim str_split str_replace_all str_remove
 #' @importFrom readr read_csv
 #' @export
@@ -66,7 +67,7 @@ read_obsnode <- function(path, to_longer = TRUE) {
   if(to_longer) {
     dat %>%
       tidyr::pivot_longer( - time) %>%
-      tidyr::separate(col = "name", into = c("node", "variable"), sep = "_") %>%
+      tidyr::separate(col = "name", into = c("node_id", "variable"), sep = "_") %>%
       dplyr::mutate(node = stringr::str_remove(node, "node") %>% as.integer())
   } else {
     dat

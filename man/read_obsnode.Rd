@@ -11,6 +11,9 @@ read_obsnode(path, to_longer = TRUE)
 
 \item{to_longer}{convert table to longer format (default: TRUE)}
 }
+\value{
+tibble with Obs_Node time series data
+}
 \description{
 Read Obs_Node.out
 }

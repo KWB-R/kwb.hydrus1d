@@ -6,7 +6,7 @@
 \usage{
 write_atmosphere(
   atm,
-  MaxAL = 365,
+  MaxAL = nrow(atm),
   DailyVar = FALSE,
   SinusVar = FALSE,
   lLai = FALSE,
@@ -20,7 +20,7 @@ write_atmosphere(
 \arguments{
 \item{atm}{tibble of input data as defined in \code{prepare_atmospherice_input}}
 
-\item{MaxAL}{Number of meteorological records}
+\item{MaxAL}{Number of meteorological records (default: nrow(atm))}
 
 \item{DailyVar}{TRUE if HYDRUS-1D is to generate daily variations in evaporation
 and transpiration (see section 2.7.2.)., otherwise: FALSE (default: FALSE)}

@@ -4,12 +4,17 @@
 \alias{read_obsnode}
 \title{Read Obs_Node.out}
 \usage{
-read_obsnode(path, to_longer = TRUE)
+read_obsnode(path, to_longer = TRUE, calculate_mass = TRUE, debug = TRUE)
 }
 \arguments{
 \item{path}{path to Obs_Node.out}
 
 \item{to_longer}{convert table to longer format (default: TRUE)}
+
+\item{calculate_mass}{should masses for all concentrations be calculated, i.e.
+flux*conc(1-n) (default: TRUE)}
+
+\item{debug}{print debug messages? (default: TRUE)}
 }
 \value{
 tibble with Obs_Node time series data

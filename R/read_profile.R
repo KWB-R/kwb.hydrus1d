@@ -7,7 +7,7 @@
 #' @importFrom stringr str_replace
 read_profile <- function(path) {
 
-  lines <- readLines(paths$profile)
+  lines <- readLines(path)
 
   header_idx <- grep("x", lines)
 
@@ -27,9 +27,9 @@ read_profile <- function(path) {
                            as.vector() %>% tolower())
 
   header_clean <- if(median(ncols) > length(header_names_file)) {
-    string_conc <- sprintf("conc_%d", seq_len(median(ncols) - length(header_names_file))+1)
+    string_conc <- sprintf("conc%d", seq_len(median(ncols) - length(header_names_file))+1)
 
-    c(stringr::str_replace(header_names_file, "conc", "conc_1"),
+    c(stringr::str_replace(header_names_file, "conc", "conc1"),
       string_conc)
 
   } else {

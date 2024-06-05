@@ -8,7 +8,7 @@
 get_atmosphere_headers <- function() {
 
   c("tAtm", "Prec", "rSoil", "rRoot", "hCritA", "rB", "hB", "ht",
-    "tTop", "tBot", "Ampl", "cTop", "cBot", "RootDepth")
+    "tTop", "tBot", "Ampl", "cTop", "cBot")
 }
 
 #' Prepare Atmosphere Input

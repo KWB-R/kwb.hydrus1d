@@ -1,7 +1,7 @@
 #' Write "ATMOSPH.IN" input file
 #'
 #' @param atm tibble of input data as defined in \code{prepare_atmospherice_input}
-#' @param MaxAL Number of meteorological records
+#' @param MaxAL Number of meteorological records (default: nrow(atm))
 #' @param DailyVar TRUE if HYDRUS-1D is to generate daily variations in evaporation
 #' and transpiration (see section 2.7.2.)., otherwise: FALSE (default: FALSE)
 #' @param SinusVar TRUE if HYDRUS-1D is to generate sinusoidal variations in
@@ -31,7 +31,7 @@
 
 write_atmosphere <- function (
   atm,
-  MaxAL = 365,
+  MaxAL = nrow(atm),
   DailyVar = FALSE,
   SinusVar = FALSE,
   lLai = FALSE,

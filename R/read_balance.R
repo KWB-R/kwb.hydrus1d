@@ -34,7 +34,7 @@ blocks <- tibble::tibble(id = seq_len(length(block_start)),
                          end_idx = block_end)
 
 
-budget <- lapply(seq_len(nrow(blocks)), function(i) {
+lapply(seq_len(nrow(blocks)), function(i) {
 
 block_sel_txt <- lines[blocks$start_idx[i]:blocks$end_idx[i]]
 
@@ -48,7 +48,7 @@ bal_id_start <- grep("Length", block_sel_txt)
 bal_id_end <- length(block_sel_txt)
 
 
-lapply(block_sel_txt[bal_id_start:bal_id_end], function(x) {
+balance <- lapply(block_sel_txt[bal_id_start:bal_id_end], function(x) {
   stringr::str_extract_all(x, "\\d+?\\.\\d+")[[1]] %>% as.double() %>% t() %>%
     tibble::as_tibble()
 }) %>%

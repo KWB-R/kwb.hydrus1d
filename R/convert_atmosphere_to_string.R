@@ -35,7 +35,8 @@ convert_atmosphere_to_string <- function(
   do_pad_short <- function(x) stringr::str_pad(x, pad_short, "left")
   do_pad_long <- function(x) stringr::str_pad(x, pad_long, "left")
 
-  headers <- get_atmosphere_headers()
+  #headers <- get_atmosphere_headers()
+  headers <- names(atm)
 
   headers_short <- "tAtm"
   headers_long <- setdiff(headers, headers_short)

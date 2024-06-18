@@ -47,6 +47,32 @@ atm[idx_start:idx_end] %>%
   writeLines(a_file)
 
 atm_dat <- readr::read_table(a_file, col_names = FALSE)
+
+n_unnamed <- ncol(atm_dat)-length(atm_names)
+
+if(n_unnamed > 0) {
+  kwb.utils::catAndRun(sprintf("Guessing 'solute concentration' column names for %d unnamed columns",
+                               n_unnamed),
+                       expr = {
+
+if(n_unnamed %% 2 != 0) {
+  message(sprintf("and replacing '%s', with 'cTop2'", atm_names[length(atm_names)]))
+  n_unnamed <- n_unnamed + 1
+}
+
+  atm_names_added <- lapply(seq_len(n_unnamed/2), function(i){
+  c(sprintf("cTop%d", i+1), sprintf("cBot%d", i+1))
+  }) %>% unlist()
+
+  if(ncol(atm_dat)-n_unnamed-1 < length(atm_names)) {
+  atm_names <-  atm_names[-(ncol(atm_dat)-n_unnamed+1)]
+  }
+
+  atm_names <- c(atm_names, atm_names_added)
+
+                       })
+}
+
 names(atm_dat)[seq_along(atm_names)] <- atm_names
 
 list(config = atm_config,

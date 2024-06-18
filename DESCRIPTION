@@ -33,6 +33,7 @@ Imports:
     rlang,
     stringr,
     tibble,
+    tidyr,
     tidyselect
 Suggests: 
     covr,

@@ -62,10 +62,12 @@ balance <- do.call(rbind, lapply(float_numbers_list, function(x) {
   length(x) <- 3  # Setze die Länge auf 3, um sicherzustellen, dass alle Einträge drei Spalten haben
   return(x)
 })) %>%
-  tibble::as_tibble()
+  as.data.frame()
 
-names(balance) <- sprintf("id_%d", subregion_ids)
+# Erstellen eindeutiger Spaltennamen
+colnames(balance) <- make.names(sprintf("id_%d", subregion_ids), unique = TRUE)
 
+balance <- tibble::as_tibble(balance)
 
 parvals <- block_sel_txt[bal_id_start:bal_id_end] %>%
   stringr::str_remove_all("-?\\d*\\.\\d+(?:E[+-]?\\d+)?") %>%
@@ -97,3 +99,4 @@ dplyr::bind_cols(tibble::tibble(time = time,
 
 
 }
+

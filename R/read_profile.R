@@ -5,6 +5,7 @@
 #' @return tibble with PROFILE.out data
 #' @export
 #' @importFrom stringr str_replace
+#' @importFrom stats median
 read_profile <- function(path) {
 
   lines <- readLines(path)
@@ -26,7 +27,7 @@ read_profile <- function(path) {
                            stringr::str_split(" ", simplify = TRUE) %>%
                            as.vector() %>% tolower())
 
-  header_clean <- if(median(ncols) > length(header_names_file)) {
+  header_clean <- if(stats::median(ncols) > length(header_names_file)) {
     string_conc <- sprintf("conc%d", seq_len(median(ncols) - length(header_names_file))+1)
 
     c(stringr::str_replace(header_names_file, "conc", "conc1"),

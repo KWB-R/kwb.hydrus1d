@@ -48,17 +48,27 @@ bal_id_start <- grep("Length", block_sel_txt)
 bal_id_end <- length(block_sel_txt)
 
 
-balance <- lapply(block_sel_txt[bal_id_start:bal_id_end], function(x) {
-  stringr::str_extract_all(x, "\\d+?\\.\\d+")[[1]] %>% as.double() %>% t() %>%
-    tibble::as_tibble()
-}) %>%
-  dplyr::bind_rows()
+# Funktion zur Extraktion der Fließkommazahlen
+extract_floats <- function(text) {
+  as.numeric(unlist(regmatches(text, gregexpr("-?\\d*\\.\\d+(?:E[+-]?\\d+)?", text))))
+}
+
+
+# Anwenden der Funktion auf den gesamten Text
+float_numbers_list <- lapply(block_sel_txt[bal_id_start:bal_id_end], extract_floats)
+
+# Erstellen eines DataFrames mit drei Spalten
+balance <- do.call(rbind, lapply(float_numbers_list, function(x) {
+  length(x) <- 3  # Setze die Länge auf 3, um sicherzustellen, dass alle Einträge drei Spalten haben
+  return(x)
+})) %>%
+  tibble::as_tibble()
 
 names(balance) <- sprintf("id_%d", subregion_ids)
 
 
 parvals <- block_sel_txt[bal_id_start:bal_id_end] %>%
-  stringr::str_remove_all("-?\\d+?\\.\\d+E\\+?-?\\d\\d") %>%
+  stringr::str_remove_all("-?\\d*\\.\\d+(?:E[+-]?\\d+)?") %>%
   stringr::str_trim()
 
 parvals_df <- parvals %>%

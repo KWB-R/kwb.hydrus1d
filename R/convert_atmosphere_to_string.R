@@ -52,8 +52,8 @@ convert_atmosphere_to_string <- function(
   names(atm)[is_short] <- do_pad_short(names(atm)[is_short])
   names(atm)[is_long] <- do_pad_long(names(atm)[is_long])
 
-  header_text <- c(names(atm)[!grepl("(cTop|cBot)[2-9][1-9]?[0-9]?", names(atm))], "RootDepth") %>%
-    do_pad_long() %>%
+  header_text <- c(names(atm)[!grepl("[cTop|cBot][1-9]0?", names(atm))],
+                   do_pad_long("RootDepth")) %>%
     kwb.utils::collapsed(collapse = "")
 
   body_lines <- apply(atm, 1L, kwb.utils::collapsed, "")

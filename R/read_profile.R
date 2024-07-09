@@ -23,7 +23,7 @@ read_profile <- function(path) {
     as.data.frame()
 
   mat_props <- lapply(mat_props, as.numeric) %>%  dplyr::bind_rows()
-  names(mat_props) <- c("mat_id", "mat_depth", "mat_prop3", "mat_pro4")
+  names(mat_props) <- c("mat_id", "mat_depth", "mat_prop3", "mat_prop4")
 
 
   dat <- lines[(header_idx+1):length(lines)] %>%

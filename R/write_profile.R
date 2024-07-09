@@ -97,10 +97,23 @@ write_profile <- function(profile,
 
   stopifnot(length(path) > 0)
 
+  n_materials <- length(unique(profile$profile$mat))
 
-  n_materials <- nrow(profile$mat_props)
+  if(nrow(profile$mat_props) != length(unique(profile$profile$mat)) &  min(profile$profile$x) != min(profile$mat_props$mat_depth)) {
+    profile$mat_props <- tibble::tibble(mat_id = unique(profile$profile$mat),
+                   mat_depth = if(n_materials > 1) {
+                     c(rep(0, n_materials-1), min(profile$profile$x)
+                       )},
+                   mat_prop3 = 1,
+                   mat_prop4 = 1)
+  }
 
-  obsnodes <- stringr::str_pad(profile$obsnodes$n,width = 5,side = "left")
+
+  obsnodes <- if(is.null(profile$obsnodes$n)) {
+    obsnodes <- stringr::str_pad(0,width = 5,side = "left")
+  } else {
+    stringr::str_pad(profile$obsnodes$n,width = 5,side = "left")
+  }
 
   if(profile$obsnodes$n > 0) {
     obsnodes <- c(obsnodes,

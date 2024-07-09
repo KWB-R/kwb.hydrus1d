@@ -112,10 +112,16 @@ write_profile <- function(profile,
   obsnodes <- if(is.null(profile$obsnodes$n)) {
     obsnodes <- stringr::str_pad(0,width = 5,side = "left")
   } else {
+    if(profile$obsnodes$n > 0) {
+      if(max(profile$obsnodes$ids) > max(profile$profile$node_id)) {
+        valid_ids <- which(profile$obsnodes$ids <= max(profile$profile$node_id))
+        profile$obsnodes$ids <- profile$obsnodes$ids[valid_ids]
+        profile$obsnodes$n <- length(profile$obsnodes$ids)
+      }
+
     stringr::str_pad(profile$obsnodes$n,width = 5,side = "left")
   }
 
-  if(profile$obsnodes$n > 0) {
     obsnodes <- c(obsnodes,
                   paste0(stringr::str_pad(profile$obsnodes$ids,width = 5,side = "left"),
                        collapse = ""))

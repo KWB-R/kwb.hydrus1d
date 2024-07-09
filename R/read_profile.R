@@ -1,8 +1,9 @@
-#' Read PROFILE.out
+#' Read PROFILE.DAT
 #'
-#' @param path path to PROFILE.out
+#' @param path path to PROFILE.DAT
 #'
-#' @return tibble with PROFILE.out data
+#' @return list with sublists with material properties, profile and observations
+#' data of PROFILE.DAT data
 #' @export
 #' @importFrom stringr str_replace
 #' @importFrom stats median
@@ -59,12 +60,12 @@ read_profile <- function(path) {
   obsnodes <- list(n = 0,
                    ids = NULL)
 
-  if (which(ncols == 2) > 0) {
+  if (length(which(ncols == 2)) > 0) {
     idx_obsnodes <- which(ncols == 2)
-    if(idx_obsnodes != length(ncols)) {
+    if(any(idx_obsnodes < length(ncols))) {
 
-    n_obsnodes <- as.integer(dat[idx_obsnodes])
-    obs_node_ids <- stringr::str_split(dat[length(dat)],
+      n_obsnodes <- as.integer(dat[idx_obsnodes[-length(idx_obsnodes)]])
+    obs_node_ids <- stringr::str_split(dat[idx_obsnodes[length(idx_obsnodes)]],
                                        pattern = ",",
                                        simplify = TRUE) %>%
       as.integer()

@@ -2,16 +2,17 @@
 % Please edit documentation in R/read_profile.R
 \name{read_profile}
 \alias{read_profile}
-\title{Read PROFILE.out}
+\title{Read PROFILE.DAT}
 \usage{
 read_profile(path)
 }
 \arguments{
-\item{path}{path to PROFILE.out}
+\item{path}{path to PROFILE.DAT}
 }
 \value{
-tibble with PROFILE.out data
+list with sublists with material properties, profile and observations
+data of PROFILE.DAT data
 }
 \description{
-Read PROFILE.out
+Read PROFILE.DAT
 }

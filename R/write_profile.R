@@ -103,16 +103,13 @@ write_profile <- function(profile,
     profile$mat_props <- tibble::tibble(mat_id = unique(profile$profile$mat),
                    mat_depth = if(n_materials > 1) {
                      c(rep(0, n_materials-1), min(profile$profile$x)
-                       )},
+                       )} else {min(profile$profile$x)},
                    mat_prop3 = 1,
                    mat_prop4 = 1)
   }
 
 
-  obsnodes <- if(is.null(profile$obsnodes$n)) {
-    obsnodes <- stringr::str_pad(0,width = 5,side = "left")
-  } else {
-    if(profile$obsnodes$n > 0) {
+  obsnodes <- if(profile$obsnodes$n > 0) {
       if(max(profile$obsnodes$ids) > max(profile$profile$node_id)) {
         valid_ids <- which(profile$obsnodes$ids <= max(profile$profile$node_id))
         profile$obsnodes$ids <- profile$obsnodes$ids[valid_ids]
@@ -120,12 +117,18 @@ write_profile <- function(profile,
       }
 
     stringr::str_pad(profile$obsnodes$n,width = 5,side = "left")
+    }
+
+  obsnodes <- if(is.null(profile$obsnodes$n) | profile$obsnodes$n == 0) {
+    obsnodes <- stringr::str_pad(0,width = 5,side = "left")
+  } else {
+    stringr::str_pad(profile$obsnodes$n,width = 5,side = "left")
   }
 
-    obsnodes <- c(obsnodes,
-                  paste0(stringr::str_pad(profile$obsnodes$ids,width = 5,side = "left"),
+  obsnodes <- c(obsnodes,
+                paste0(stringr::str_pad(profile$obsnodes$ids,width = 5,side = "left"),
                        collapse = ""))
-  }
+
 
   headers_profile_base <- c(stringr::str_pad(c(max(profile$profile$node_id),
                             1,

@@ -47,6 +47,8 @@ extend_soil_profile <- function(df, x_end) {
     combined_df <- if(shorten_profile) {
       dplyr::bind_rows(df, new_df)
     } else {
+      new_df <- new_df[-1,]
+      new_df$node_id <- new_df$node_id - 1
       dplyr::bind_rows(df, new_df[-1,])
     }
     sorted_df <- dplyr::arrange(combined_df, node_id)

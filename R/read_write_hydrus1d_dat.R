@@ -15,7 +15,7 @@ read_hydrus1d <- function(path = system.file("extdata/model/test/HYDRUS1D.dat",
 
   section_start_idx <- which(stringr::str_detect(lines, "\\["))
 
-  section_end_idx <- c(max(section_start_idx) - 4, length(lines))
+  section_end_idx <- c(max(section_start_idx) - 2, length(lines))
 
   section_names <- stringr::str_remove_all(lines[section_start_idx], "\\[|\\]")
 
@@ -31,13 +31,18 @@ read_hydrus1d <- function(path = system.file("extdata/model/test/HYDRUS1D.dat",
   }
 
 
-  setNames(lapply(seq_len(length(section_names)), function(i) {
+  res <- setNames(lapply(seq_len(length(section_names)), function(i) {
 
-    mat_data <- stringr::str_split_fixed(lines[(section_start_idx[i]+1):section_end_idx[i]], pattern = "=", n = 2)
+    mat_data <- stringr::str_split_fixed(lines[(section_start_idx[i]+1):section_end_idx[i]],
+                                         pattern = "=",
+                                         n = 2)
 
     setNames(lapply(mat_data[, 2], convert_to_numeric), mat_data[, 1])
   }), nm = section_names)
 
+  res$Profile$ProfileDepth <- toupper(format(res$Profile$ProfileDepth,
+                                     scientific = TRUE,
+                                     digits = 1))
 
 }
 

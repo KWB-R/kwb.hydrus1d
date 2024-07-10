@@ -44,6 +44,8 @@ read_hydrus1d <- function(path = system.file("extdata/model/test/HYDRUS1D.dat",
                                      scientific = TRUE,
                                      digits = 1))
 
+  res
+
 }
 
 

@@ -99,7 +99,7 @@ write_profile <- function(profile,
 
   n_materials <- length(unique(profile$profile$mat))
 
-  if(nrow(profile$mat_props) != length(unique(profile$profile$mat)) &  min(profile$profile$x) != min(profile$mat_props$mat_depth)) {
+  if(nrow(profile$mat_props) != length(unique(profile$profile$mat)) |  min(profile$profile$x) != min(profile$mat_props$mat_depth)) {
     profile$mat_props <- tibble::tibble(mat_id = unique(profile$profile$mat),
                    mat_depth = if(n_materials > 1) {
                      c(rep(0, n_materials-1), min(profile$profile$x)

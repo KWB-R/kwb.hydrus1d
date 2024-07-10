@@ -10,8 +10,12 @@
 #' @importFrom dplyr arrange bind_rows
 #'
 extend_soil_profile <- function(df, x_end) {
+
+  shorten_profile <- FALSE
+
   if (x_end > min(df$x)) {
     if (any(x_end == df$x)) {
+      shorten_profile <- TRUE
       return(df[which(x_end <= df$x), ])
     }
   } else {
@@ -40,7 +44,11 @@ extend_soil_profile <- function(df, x_end) {
     }
 
     # Kombinieren und Sortieren der Dataframes
-    combined_df <- dplyr::bind_rows(df, new_df)
+    combined_df <- if(shorten_profile) {
+      dplyr::bind_rows(df, new_df)
+    } else {
+      dplyr::bind_rows(df, new_df[-1,])
+    }
     sorted_df <- dplyr::arrange(combined_df, node_id)
 
     return(sorted_df)

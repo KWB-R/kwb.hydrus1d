@@ -62,16 +62,19 @@ read_profile <- function(path) {
 
   if (length(which(ncols == 2)) > 0) {
     idx_obsnodes <- which(ncols == 2)
-    if(any(idx_obsnodes < length(ncols))) {
+    obsnodes$n <- as.integer(dat[idx_obsnodes[1]])
 
-      n_obsnodes <- as.integer(dat[idx_obsnodes[-length(idx_obsnodes)]])
-    obs_node_ids <- stringr::str_split(dat[idx_obsnodes[length(idx_obsnodes)]],
+    if(stringr::str_length(dat[idx_obsnodes[1]+1]) > 0) {
+
+    obsnodes$ids <- stringr::str_split(dat[idx_obsnodes[1]+1],
                                        pattern = ",",
                                        simplify = TRUE) %>%
       as.integer()
 
-    obsnodes <- list(n = n_obsnodes,
-                     ids = obs_node_ids)
+    } else {
+      stop("Check stucture of input file %s. Missing ids for %d specified observation points!",
+           path,
+           obsnodes$n)
     }
   }
 

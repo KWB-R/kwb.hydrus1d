@@ -66,11 +66,27 @@ write_hydrus1d <- function(hydrus1d_list,
   unlisted_section1 <- unlist(hydrus1d_list[[1]])
   unlisted_section2 <- unlist(hydrus1d_list[[2]])
 
+  format_number <- function(x) {
+    formatted <- sprintf("%.0E", x)
+    formatted <- gsub("E", ".E", formatted)
+    formatted <- gsub("\\.0", "", formatted)
+    return(formatted)
+  }
+
+  unlisted_section2 <- sapply(names(unlisted_section2), function(x) {
+    if(x %in% c("ProfileDepth", "GridDX", "GridDY")) {
+     format_number(as.numeric(unlisted_section2[[x]]))
+    } else {
+     unlisted_section2[[x]]
+    }
+  })
+
 
   lines <- c(";",
              sprintf("[%s]", names(hydrus1d_list)[1]),
              sprintf("%s=%s", names(unlisted_section1), as.character(unlisted_section1)),
              ";",
+             sprintf("[%s]", names(hydrus1d_list)[2]),
              sprintf("%s=%s", names(unlisted_section2), as.character(unlisted_section2)))
 
   writeLines(lines, path)

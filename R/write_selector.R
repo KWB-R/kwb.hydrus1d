@@ -21,7 +21,7 @@ write_selector <- function(selector, path) {
     basic_names[i_head],
     as.character(basic_values[i_head]),
     paste0(paste0(basic_names[i_units], collapse = "  "),
-           "(indicated units are obligatory for all input data)",
+           "  (indicated units are obligatory for all input data)",
            collapse = "  "),
     sapply(i_units, function(i) basic_values[i]) %>% as.character(),
     lapply(1:3, function(i) {
@@ -191,7 +191,8 @@ write_selector <- function(selector, path) {
              basic_txt,
              waterflow_txt,
              time_txt,
-             solutes_txt)
+             solutes_txt,
+             "*** END OF INPUT FILE 'SELECTOR.IN' ************************************")
 
   writeLines(lines, path)
 }

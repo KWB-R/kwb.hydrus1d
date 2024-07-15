@@ -72,8 +72,7 @@ read_selector <- function(path) {
     header_values_to_list(headers = clean_line(block_basic_txt[i]),
                           values = clean_line(block_basic_txt[i + 1]))
   }) %>%
-    unlist() %>%
-    as.list()
+    unlist(recursive = FALSE)
   )
 
 
@@ -102,9 +101,8 @@ read_selector <- function(path) {
     lapply(c(i1, i2), function(i) {
       header_values_to_list(headers = clean_line(block_water_txt[i]),
                             values = clean_line(block_water_txt[i + 1]))
-    }) %>% unlist() %>% as.list(),
+    }) %>% unlist(recursive = FALSE),
     list(soil = soil))
-
 
   block_time <- blocks[blocks$name_clean == "C_TIME",]
   block_time_txt <- lines[block_time$start_idx:block_time$end_ix]
@@ -113,7 +111,7 @@ read_selector <- function(path) {
     lapply(c(1,3,5), function(i) {
     header_values_to_list(headers = clean_line(block_time_txt[i]),
                           values = clean_line(block_time_txt[i + 1]))
-    }) %>% unlist() %>% as.list(),
+    }) %>% unlist(recursive = FALSE),
     "TPrint" = list(lapply((grep("TPrint", block_time_txt)+1):length(block_time_txt),
            function(i) {
            clean_line(block_time_txt[i])
@@ -146,7 +144,7 @@ solute_reaction <- stats::setNames(lapply(solute_reaction_idx, function(reac_idx
 
    list(diffusion = header_values_to_list(headers =  clean_line(block_solute_txt[reac_idx])[1:2],
                                  values = clean_line(block_solute_txt[reac_idx+1])) %>%
-          unlist() %>% t() %>% tibble::as_tibble(),
+          unlist(recursive = FALSE) %>% t() %>% tibble::as_tibble(),
         reaction = lapply((reac_idx+3):reac_max_idx, function(i) {
              vec <- clean_line(block_solute_txt[i],
                                pattern = "\\s{2,}") %>%
@@ -163,13 +161,13 @@ solute_reaction <- stats::setNames(lapply(solute_reaction_idx, function(reac_idx
 general_1 = lapply(header_val_idx[1:2], function(i) {
   header_values_to_list(headers = clean_line(block_solute_txt[i]),
                         values = clean_line(block_solute_txt[i + 1]))
-}) %>% unlist() %>% as.list()
+}) %>% unlist(recursive = FALSE)
 
 
 general_2 = lapply(header_val_idx[3:4], function(i) {
   header_values_to_list(headers = clean_line(block_solute_txt[i]),
                         values = clean_line(block_solute_txt[i + 1]))
-}) %>% unlist() %>% as.list()
+}) %>% unlist(recursive = FALSE)
 
 
 gen2_is_na <- is.na(names(general_2))

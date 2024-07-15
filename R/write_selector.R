@@ -192,4 +192,6 @@ write_selector <- function(selector, path) {
              waterflow_txt,
              time_txt,
              solutes_txt)
+
+  writeLines(lines, path)
 }

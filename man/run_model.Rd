@@ -7,6 +7,7 @@
 run_model(
   exe_path = check_hydrus_exe(),
   model_path = system.file("extdata/model/test", package = "kwb.hydrus1d"),
+  print_output = TRUE,
   ...
 )
 }
@@ -16,6 +17,9 @@ by \code{check_hydrus_exe})}
 
 \item{model_path}{path to model directory (default: system.file("extdata/model/test",
 package = "kwb.hydrus1d"))}
+
+\item{print_output}{if TRUE (the default) the output goes to the console, if
+FALSE, it is returned as an R object (character vector)}
 
 \item{...}{additional arguments passed to \code{shell}}
 }

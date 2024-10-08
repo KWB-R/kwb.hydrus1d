@@ -4,6 +4,8 @@
 #' by \code{check_hydrus_exe})
 #' @param model_path path to model directory (default: system.file("extdata/model/test",
 #' package = "kwb.hydrus1d"))
+#' @param print_output if TRUE (the default) the output goes to the console, if
+#' FALSE, it is returned as an R object (character vector)
 #' @param ... additional arguments passed to \code{shell}
 #' @return runs HYDRUS 1D model
 #' @export
@@ -13,6 +15,7 @@
 run_model <- function(
   exe_path = check_hydrus_exe(),
   model_path = system.file("extdata/model/test", package = "kwb.hydrus1d"),
+  print_output = TRUE,
   ...
 )
 {
@@ -31,7 +34,7 @@ run_model <- function(
 
   shell(
     cmd = sprintf("cd %s && %s", fs::path_abs(target_dir), exe_name),
-    intern = FALSE,
+    intern = !print_output,
     ...
   )
 }

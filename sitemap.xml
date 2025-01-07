@@ -1,87 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/404.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/articles/workflow.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/index.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/check_hydrus_exe.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/defaults_atmosphere.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_atmosphere_headers.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_output_meta.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_units_list.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/prepare_atmosphere_input.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_alevel.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_atmosph.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_balance.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_meta_general.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_obsnode.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_profile.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_runinf.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_selector.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_solute.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_tlevel.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/run_model.html</loc>
-  </url>
-  <url>
-    <loc>https://kwb-r.github.io/kwb.hydrus1d/reference/write_atmosphere.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/404.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/articles/index.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/articles/workflow.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/authors.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/index.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/LICENSE-text.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/LICENSE.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/news/index.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/check_hydrus_exe.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/defaults_atmosphere.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/extend_soil_profile.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_atmosphere_headers.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_output_meta.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/get_units_list.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/index.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/pipe.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/prepare_atmosphere_input.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_alevel.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_atmosph.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_balance.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_hydrus1d.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_meta_general.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_obsnode.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_profile.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_runinf.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_selector.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_solute.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/read_tlevel.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/run_model.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/write_atmosphere.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/write_formatted_materials.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/write_formatted_profile.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/write_hydrus1d.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/write_profile.html</loc></url>
+<url><loc>https://kwb-r.github.io/kwb.hydrus1d/reference/write_selector.html</loc></url>
 </urlset>
+

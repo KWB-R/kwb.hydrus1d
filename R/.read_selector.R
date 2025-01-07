@@ -1,5 +1,7 @@
 if(FALSE) {
-selector_list <- read_selector_list(path = "inst/extdata/model/test/SELECTOR.IN")
+selector_in <- file.path(paths$model_dir, "SELECTOR.in")
+
+selector_list <- read_selector_list(path = selector_in)
 
 selector_list$`_BLOCK_B_WATER_FLOW_INFORMATION`
 
@@ -9,6 +11,11 @@ waterflow_list
 as.character(write_waterflow_txt(waterflow_list))
 
 write_selector_text(selector_list)
+
+res_write <- res
+names(res_write) <- to_orig_headers(names(res))
+unlist(res_write)
+
 }
 
 read_waterflow <- function(txt) {
@@ -127,10 +134,6 @@ to_orig_headers <- function(header_names) {
   sprintf("%s ", .) %>%
   stringr::str_pad(width = 72, side = "right", pad = "*")
 }
-
-res_write <- res
-names(res_write) <- to_orig_headers(names(res))
-unlist(res_write)
 
 
 end_of_input_file <- function() {

@@ -35,7 +35,8 @@ convert_atmosphere_to_string <- function(
   do_pad_short <- function(x) stringr::str_pad(x, pad_short, "left")
   do_pad_long <- function(x) stringr::str_pad(x, pad_long, "left")
 
-  headers <- get_atmosphere_headers()
+  #headers <- get_atmosphere_headers()
+  headers <- names(atm)
 
   headers_short <- "tAtm"
   headers_long <- setdiff(headers, headers_short)
@@ -51,7 +52,10 @@ convert_atmosphere_to_string <- function(
   names(atm)[is_short] <- do_pad_short(names(atm)[is_short])
   names(atm)[is_long] <- do_pad_long(names(atm)[is_long])
 
-  header_text <- kwb.utils::collapsed(names(atm), "")
+  header_text <- c(names(atm)[!grepl("[cTop|cBot][1-9]0?", names(atm))],
+                   do_pad_long("RootDepth")) %>%
+    kwb.utils::collapsed(collapse = "")
+
   body_lines <- apply(atm, 1L, kwb.utils::collapsed, "")
 
   kwb.utils::collapsed(c(header_text, body_lines), "\n")

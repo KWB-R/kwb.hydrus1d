@@ -8,7 +8,7 @@
 get_atmosphere_headers <- function() {
 
   c("tAtm", "Prec", "rSoil", "rRoot", "hCritA", "rB", "hB", "ht",
-    "tTop", "tBot", "Ampl", "cTop", "cBot", "RootDepth")
+    "tTop", "tBot", "Ampl", "cTop", "cBot")
 }
 
 #' Prepare Atmosphere Input
@@ -31,8 +31,15 @@ prepare_atmosphere_input <- function(
 )
 {
   required_parameters <- get_atmosphere_headers()
+  n_solutes_per_run <- 12
+  optional_parameters <- sapply(2:n_solutes_per_run, function(i) {
+    c(sprintf("cTop%d", i), sprintf("cBot%d", i))
+  }) %>% as.vector()
+
+
 
   is_given <- required_parameters %in% names(inputs)
+  is_given_optional <- optional_parameters %in% names(inputs)
   has_default <- required_parameters %in% names(defaults)
 
   if (any(is_missing <- !is_given & !has_default)) {
@@ -44,7 +51,9 @@ prepare_atmosphere_input <- function(
 
   dplyr::bind_cols(
     inputs[, required_parameters[is_given], drop = FALSE],
+    inputs[, optional_parameters[is_given_optional], drop = FALSE],
     defaults[, required_parameters[!is_given & has_default], drop = FALSE]
   ) %>%
-    dplyr::select(tidyselect::all_of(required_parameters))
+    dplyr::select(tidyselect::all_of(required_parameters),
+                  tidyselect::all_of(optional_parameters[is_given_optional]))
 }

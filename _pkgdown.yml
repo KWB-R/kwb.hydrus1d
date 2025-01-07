@@ -7,10 +7,10 @@ authors:
   FlexTreat:
     href: https://www.kompetenz-wasser.de/en/forschung/projekte/flextreat
     html: <img src='https://bmbf-wave.de/Verbundprojekte+nach+Themenfeldern/Kommunales+Abwasser/FlexTreat-height-394-width-1389/_/Flextreat-Logo-300dpi.png'
-      alt='Project FLexTreat' height='24' />
+      alt='Project FlexTreat' height='24' />
   Kompetenzzentrum Wasser Berlin gGmbH (KWB):
     href: http://www.kompetenz-wasser.de
-    html: <img src='https://publications.kompetenz-wasser.de/img/KWB-Logo.svg' alt='KWB'
+    html: <img src='https://logos.kompetenz-wasser.io/KWB_Logo_M_Blau_RGB.svg' alt='KWB'
       width='72' />
 template:
   bootstrap: 5
@@ -51,7 +51,10 @@ reference:
       Helper functions for HYDRUS-1D
     contents:
       - defaults_atmosphere
+      - extend_soil_profile
       - get_atmosphere_headers
       - get_output_meta
       - get_units_list
-
+      - write_hydrus1d
+      - write_profile
+      - write_selector

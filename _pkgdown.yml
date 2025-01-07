@@ -51,7 +51,10 @@ reference:
       Helper functions for HYDRUS-1D
     contents:
       - defaults_atmosphere
+      - extend_soil_profile
       - get_atmosphere_headers
       - get_output_meta
       - get_units_list
-
+      - write_hydrus1d
+      - write_profile
+      - write_selector

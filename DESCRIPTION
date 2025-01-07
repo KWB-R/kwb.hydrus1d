@@ -1,7 +1,7 @@
 Package: kwb.hydrus1d
 Title: R Interface for the Last Official Release of Hydrus1D (V4.17.0140)
     for Windows
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     c(person(given = "Michael",
              family = "Rustler",
